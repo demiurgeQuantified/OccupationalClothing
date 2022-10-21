@@ -1,0 +1,21 @@
+version=1
+id=2740714428
+title=Expanded Occupational Clothing
+description=This mod adds additional selectable clothing during character creation based on occupation. Unlike similar mods, this does not give you any other items such as weapons, food, etc. Only vanilla occupations are supported.
+description=
+description=This mod has sandbox variables to allow you to use occupational outfits from mods. At the moment, the supported mods are:
+description=[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2623855083]Small Town Responders[/url]
+description=[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2599486479]Raven Creek Police Department[/url]
+description=[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2460154811]Brita's Armour Pack[/url]
+description=
+description=Sandbox variables also allow you to configure what items are available at character creation - you can restrict armour, hardhats, gloves, firefighter suits, etc. These options extend to vanilla clothing.
+description=
+description=Future features:
+description='Hardmode' that only allows items that offer no zombie resistance at all
+description=
+description=If there are any errors or you have any suggestions, please let me know!
+description=
+description=If you enjoy my mods, I'd appreciate it a lot if you considered leaving me a tip ^u^
+description=[url=https://ko-fi.com/starseamstress][img]https://storage.ko-fi.com/cdn/brandasset/kofi_button_dark.png[/img][/url]
+tags=Build 41;Clothing/Armor;Military;Misc;Multiplayer;Realistic
+visibility=public
