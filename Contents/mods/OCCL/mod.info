@@ -5,5 +5,5 @@ description=Adds clothing options to all vanilla occupations. Has extra support 
 require=ProfessionFramework
 versionMin=41.00
 authors=albion
-modversion=2.0.2
+modversion=2.0.3
 icon=occlmini.png

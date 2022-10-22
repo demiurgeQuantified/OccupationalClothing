@@ -21,7 +21,7 @@ require 'occupationalclothing/main'
 OCCL.Brita = {}
 
 function OCCL.Brita.checkEnabled()
-    return (SandboxVars.OccupationalClothing.WantBrita and activatedMods:contains('Brita_2'))
+    return (SandboxVars.OccupationalClothing.WantBrita and getActivatedMods():contains('Brita_2'))
 end
 
 local function addBrita()
