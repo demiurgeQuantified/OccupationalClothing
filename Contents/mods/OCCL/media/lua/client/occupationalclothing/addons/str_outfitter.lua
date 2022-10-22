@@ -18,6 +18,8 @@
 require 'occupationalclothing/outfitter'
 require 'occupationalclothing/addons/str'
 
+OCCL.Outfitter.STR = {}
+
 local function getPoliceOutfit(department)
     local bulletVest = 'Base.Vest_BulletPolice'
     if department == 'JeffersonSD' or department == 'Meade' then
@@ -62,7 +64,7 @@ local function getFirefighterOutfits(department)
     }
 end
 
-local function generateSTRClothingTables()
+function OCCL.Outfitter.STR.generateClothingTables()
     local jeffersonPolice = getPoliceOutfit('JeffersonPD')
     local jeffersonSheriff = getPoliceOutfit('JeffersonSD')
     local meadeEMS = getEMSOutfit('Meade')
@@ -147,22 +149,22 @@ local function generateSTRClothingTables()
         }
     }
 
-    OCCL.addMultiMapClothingTable(mapTable)
+    OCCL.Outfitter.addMultiMapClothingTable(mapTable)
 end
 
-OCCL.addOutfits(generateSTRClothingTables, OCCL.STR.checkEnabled)
+OCCL.Outfitter.addOutfits(OCCL.Outfitter.STR.generateClothingTables, OCCL.STR.checkEnabled)
 
-local function addSTRBlacklistedItems()
+function OCCL.Outfitter.STR.addBlacklistedItems()
     if SandboxVars.OccupationalClothing.WantFireman < 3 then
         local bannedJackets = {'STR.Jacket_Fireman_Meade_Black', 'STR.Jacket_Fireman_Meade_Khaki',
         'STR.Jacket_Fireman_Rosewood_Black', 'STR.Jacket_Fireman_Rosewood_Khaki',
         'STR.Jacket_Fireman_Louisville_Black', 'STR.Jacket_Fireman_Louisville_Khaki'}
-        OCCL.addToBlacklist('Jacket', bannedJackets)
+        OCCL.Outfitter.addToBlacklist('Jacket', bannedJackets)
         if SandboxVars.OccupationalClothing.WantFireman < 2 then
             local bannedTrousers = {'STR.Trousers_Fireman_Meade_Black', 'STR.Trousers_Fireman_Meade_Khaki',
             'STR.Trousers_Fireman_Rosewood_Black', 'STR.Trousers_Fireman_Rosewood_Khaki',
             'STR.Trousers_Fireman_Louisville_Black', 'STR.Trousers_Fireman_Louisville_Khaki'}
-            OCCL.addToBlacklist('Pants', bannedTrousers)
+            OCCL.Outfitter.addToBlacklist('Pants', bannedTrousers)
         end
     end
 
@@ -170,7 +172,7 @@ local function addSTRBlacklistedItems()
         local bannedHats = {'STR.Hat_Fireman_Meade_Black', 'STR.Hat_Fireman_Meade_Red', 'STR.Hat_Fireman_Meade_Yellow',
         'STR.Hat_Fireman_Rosewood_Black', 'STR.Hat_Fireman_Rosewood_Red', 'STR.Hat_Fireman_Rosewood_Yellow',
         'STR.Hat_Fireman_Louisville_Black', 'STR.Hat_Fireman_Louisville_Red', 'STR.Hat_Fireman_Louisville_Yellow'}
-        OCCL.addToBlacklist('Hat', bannedHats)
+        OCCL.Outfitter.addToBlacklist('Hat', bannedHats)
     end
 
     if not SandboxVars.OccupationalClothing.WantJackets then
@@ -178,25 +180,25 @@ local function addSTRBlacklistedItems()
         'STR.Jacket_Police_WestPoint', 'STR.Jacket_Police_Louisville', 'STR.Jacket_EMS_Louisville', 'STR.Jacket_Police_Meade',
         'STR.Jacket_Police_JeffersonPD', 'STR.Jacket_Police_JeffersonSD', 'STR.Jacket_PoliceKSP', 'STR.Jacket_EMS_Meade',
         'STR.Jacket_EMS_Jefferson', 'STR.Jacket_Federal_Ranger', 'STR.Jacket_State_LawRanger', 'STR.Jacket_State_Ranger'}
-        OCCL.addToBlacklist('Jacket', bannedJackets)
+        OCCL.Outfitter.addToBlacklist('Jacket', bannedJackets)
     end
 
     if not SandboxVars.OccupationalClothing.WantVests then
-        OCCL.addToBlacklist('TorsoExtra', 'STR.Vest_BulletPolice_Meade')
+        OCCL.Outfitter.addToBlacklist('TorsoExtra', 'STR.Vest_BulletPolice_Meade')
     end
 end
 
-OCCL.addBlacklistedItems(addSTRBlacklistedItems, OCCL.STR.checkEnabled)
+OCCL.Outfitter.addBlacklistedItems(OCCL.Outfitter.STR.addBlacklistedItems, OCCL.STR.checkEnabled)
 
-local function banSTRSeasonalItems(month)
+function OCCL.Outfitter.STR.banSeasonalItems(month)
     if month == 12 or month < 3 then
-        OCCL.addTableToBlacklist({['Tshirt'] = {'STR.TShirt_Police_Muldraugh', 'STR.TShirt_Police_Rosewood', 'STR.TShirt_Police_Riverside',
+        OCCL.Outfitter.addTableToBlacklist({['Tshirt'] = {'STR.TShirt_Police_Muldraugh', 'STR.TShirt_Police_Rosewood', 'STR.TShirt_Police_Riverside',
         'STR.TShirt_Police_WestPoint', 'STR.TShirt_Police_Louisville', 'STR.TShirt_EMS_Louisville', 'STR.TShirt_Police_Meade',
         'STR.TShirt_Police_JeffersonPD', 'STR.TShirt_Police_JeffersonSD', 'STR.TShirt_PoliceKSP', 'STR.TShirt_EMS_Meade',
         'STR.TShirt_EMS_Jefferson', 'STR.TShirt_Federal_Ranger', 'STR.TShirt_State_LawRanger', 'STR.TShirt_State_Ranger'},
         ['Pants'] = 'STR.Trousers_PoliceKSP_Summer'})
     elseif month < 6 then
-        OCCL.addTableToBlacklist({['Tshirt'] = {'STR.TShirt_Police_Muldraugh', 'STR.TShirt_Police_Rosewood', 'STR.TShirt_Police_Riverside',
+        OCCL.Outfitter.addTableToBlacklist({['Tshirt'] = {'STR.TShirt_Police_Muldraugh', 'STR.TShirt_Police_Rosewood', 'STR.TShirt_Police_Riverside',
         'STR.TShirt_Police_WestPoint', 'STR.TShirt_Police_Louisville', 'STR.TShirt_EMS_Louisville', 'STR.TShirt_Police_Meade',
         'STR.TShirt_Police_JeffersonPD', 'STR.TShirt_Police_JeffersonSD', 'STR.TShirt_PoliceKSP', 'STR.TShirt_EMS_Meade',
         'STR.TShirt_EMS_Jefferson', 'STR.TShirt_Federal_Ranger', 'STR.TShirt_State_LawRanger', 'STR.TShirt_State_Ranger'},
@@ -206,7 +208,7 @@ local function banSTRSeasonalItems(month)
         'STR.Jacket_EMS_Jefferson', 'STR.Jacket_Federal_Ranger', 'STR.Jacket_State_LawRanger', 'STR.Jacket_State_Ranger'},
         ['Pants'] = 'STR.Trousers_PoliceKSP_Winter'})
     elseif month < 9 then
-        OCCL.addTableToBlacklist({['Shirt'] = {'STR.Shirt_Police_Muldraugh', 'STR.Shirt_Police_Rosewood', 'STR.Shirt_Police_Riverside',
+        OCCL.Outfitter.addTableToBlacklist({['Shirt'] = {'STR.Shirt_Police_Muldraugh', 'STR.Shirt_Police_Rosewood', 'STR.Shirt_Police_Riverside',
         'STR.Shirt_Police_WestPoint', 'STR.Shirt_Police_Louisville', 'STR.Shirt_EMS_Louisville', 'STR.Shirt_Police_Meade',
         'STR.Shirt_Police_JeffersonPD', 'STR.Shirt_Police_JeffersonSD', 'STR.Shirt_PoliceKSP', 'STR.Shirt_EMS_Meade',
         'STR.Shirt_EMS_Jefferson', 'STR.Shirt_Federal_Ranger', 'STR.Shirt_State_LawRanger', 'STR.Shirt_State_Ranger'},
@@ -216,7 +218,7 @@ local function banSTRSeasonalItems(month)
         'STR.Jacket_EMS_Jefferson', 'STR.Jacket_Federal_Ranger', 'STR.Jacket_State_LawRanger', 'STR.Jacket_State_Ranger'},
         ['Pants'] = 'STR.Trousers_PoliceKSP_Winter'})
     else
-        OCCL.addTableToBlacklist({['Tshirt'] = {'STR.TShirt_Police_Muldraugh', 'STR.TShirt_Police_Rosewood', 'STR.TShirt_Police_Riverside',
+        OCCL.Outfitter.addTableToBlacklist({['Tshirt'] = {'STR.TShirt_Police_Muldraugh', 'STR.TShirt_Police_Rosewood', 'STR.TShirt_Police_Riverside',
         'STR.TShirt_Police_WestPoint', 'STR.TShirt_Police_Louisville', 'STR.TShirt_EMS_Louisville', 'STR.TShirt_Police_Meade',
         'STR.TShirt_Police_JeffersonPD', 'STR.TShirt_Police_JeffersonSD', 'STR.TShirt_PoliceKSP', 'STR.TShirt_EMS_Meade',
         'STR.TShirt_EMS_Jefferson', 'STR.TShirt_Federal_Ranger', 'STR.TShirt_State_LawRanger', 'STR.TShirt_State_Ranger'},
@@ -228,4 +230,4 @@ local function banSTRSeasonalItems(month)
     end
 end
 
-OCCL.addSeasonalBannedItems(banSTRSeasonalItems, OCCL.STR.checkEnabled)
+OCCL.Outfitter.addSeasonalBannedItems(OCCL.Outfitter.STR.banSeasonalItems, OCCL.STR.checkEnabled)

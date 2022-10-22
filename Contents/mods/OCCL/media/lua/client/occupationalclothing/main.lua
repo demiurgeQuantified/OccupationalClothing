@@ -32,7 +32,7 @@ local professions = {
 'fisherman', 'doctor', 'veteran', 'nurse', 'lumberjack', 'fitnessInstructor', 'burgerflipper', 'electrician', 'engineer', 'metalworker', 'mechanics'}
 local additionalClothing = {}
 
-local function MergeClothingTables(profession, newClothing)
+function OCCL.MergeClothingTables(profession, newClothing)
     local professionTable = ProfessionFramework.getProfession(profession)
     if professionTable ~= nil then
         local allClothing = newClothing
@@ -56,7 +56,7 @@ function OCCL.UpdateClothing(profession, newClothing, mod)
     mod = mod or 'Base'
     if mod == false then -- manually written module names
         ProfessionFramework.addProfession(profession, {
-            clothing = MergeClothingTables(profession, newClothing)
+            clothing = OCCL.MergeClothingTables(profession, newClothing)
         })
     else
         mod = mod .. '.'
@@ -66,13 +66,13 @@ function OCCL.UpdateClothing(profession, newClothing, mod)
             end
         end
         ProfessionFramework.addProfession(profession, {
-            clothing = MergeClothingTables(profession, newClothing)
+            clothing = OCCL.MergeClothingTables(profession, newClothing)
         })
     end
 end
 
 
-local function ClearClothing(profession)
+function OCCL.ClearClothing(profession)
     ProfessionFramework.addProfession(profession, {
         clothing = {
             replace = true
@@ -81,14 +81,14 @@ local function ClearClothing(profession)
     -- clears all profession specific clothing, even vanilla
 end
 
-local function ClearAllClothing()
+function OCCL.ClearAllClothing()
     for _,v in ipairs(professions) do
-        ClearClothing(v)
+        OCCL.ClearClothing(v)
     end
 end
 
 function OCCL.GenerateClothingTables()
-    ClearAllClothing()
+    OCCL.ClearAllClothing()
 
     OCCL.Utils.handleCallbacks(additionalClothing)
 

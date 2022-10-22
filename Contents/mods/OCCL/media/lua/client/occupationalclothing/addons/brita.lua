@@ -24,7 +24,7 @@ function OCCL.Brita.checkEnabled()
     return (SandboxVars.OccupationalClothing.WantBrita and getActivatedMods():contains('Brita_2'))
 end
 
-local function addBrita()
+function OCCL.Brita.addClothes()
     if SandboxVars.OccupationalClothing.WantVeteranUniforms then
         OCCL.UpdateClothing('veteran', {
             Hat = {'Hat_Ela_Hat', 'Hat_Ela_Hat_Only', 'Hat_Beret_Tactical_Only'},
@@ -54,4 +54,4 @@ local function addBrita()
     })
 end
 
-OCCL.addAdditionalClothing(addBrita, OCCL.Brita.checkEnabled)
+OCCL.addAdditionalClothing(OCCL.Brita.addClothes, OCCL.Brita.checkEnabled)

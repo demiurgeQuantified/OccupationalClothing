@@ -24,7 +24,7 @@ function OCCL.RCPD.checkEnabled()
     return (SandboxVars.OccupationalClothing.WantRavenCreekPD and getActivatedMods():contains('RavenCreekPDClothes'))
 end
 
-local function addRCPD()
+function OCCL.RCPD.addClothes()
     OCCL.UpdateClothing('policeofficer', {
         Hat = {'Hat_Police_RavenCreek'},
         Shirt = {'Shirt_Police_RavenCreek'},
@@ -46,4 +46,4 @@ local function addRCPD()
     end
 end
 
-OCCL.addAdditionalClothing(addRCPD, OCCL.RCPD.checkEnabled)
+OCCL.addAdditionalClothing(OCCL.RCPD.addClothes, OCCL.RCPD.checkEnabled)

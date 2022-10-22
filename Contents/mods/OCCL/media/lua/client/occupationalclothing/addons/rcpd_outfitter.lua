@@ -18,7 +18,9 @@
 require 'occupationalclothing/outfitter'
 require 'occupationalclothing/addons/rcpd'
 
-local function generateRCPDMapClothingTables()
+OCCL.Outfitter.RCPD = {}
+
+function OCCL.Outfitter.RCPD.generateMapClothingTables()
     local professionTable = {}
 
     professionTable['policeofficer'] = {
@@ -33,32 +35,32 @@ local function generateRCPDMapClothingTables()
         },
     }
 
-    OCCL.addMapClothingTable('RavenCreek', professionTable)
+    OCCL.Outfitter.addMapClothingTable('RavenCreek', professionTable)
 end
 
-OCCL.addOutfits(generateRCPDMapClothingTables, OCCL.RCPD.checkEnabled)
+OCCL.Outfitter.addOutfits(OCCL.Outfitter.RCPD.generateMapClothingTables, OCCL.RCPD.checkEnabled)
 
-local function addRCPDBlacklistedItems()
+function OCCL.Outfitter.RCPD.addBlacklistedItems()
     if not SandboxVars.OccupationalClothing.WantJackets then
-        OCCL.addToBlacklist('Jacket', 'RavenCreekPDClothes.Jacket_Police_RavenCreek')
+        OCCL.Outfitter.addToBlacklist('Jacket', 'RavenCreekPDClothes.Jacket_Police_RavenCreek')
     end
 end
 
-OCCL.addBlacklistedItems(addRCPDBlacklistedItems, OCCL.RCPD.checkEnabled)
+OCCL.Outfitter.addBlacklistedItems(OCCL.Outfitter.RCPD.addBlacklistedItems, OCCL.RCPD.checkEnabled)
 
-local function banRCPDSeasonalItems(month)
+function OCCL.Outfitter.RCPD.banSeasonalItems(month)
     if month == 12 or month < 3 then
-        OCCL.addToBlacklist('Tshirt', 'RavenCreekPDClothes.TShirt_Police_RavenCreek')
+        OCCL.Outfitter.addToBlacklist('Tshirt', 'RavenCreekPDClothes.TShirt_Police_RavenCreek')
     elseif month < 6 then
-        OCCL.addTableToBlacklist({['Tshirt'] = 'RavenCreekPDClothes.TShirt_Police_RavenCreek',
+        OCCL.Outfitter.addTableToBlacklist({['Tshirt'] = 'RavenCreekPDClothes.TShirt_Police_RavenCreek',
                                 ['Jacket'] = 'RavenCreekPDClothes.Jacket_Police_RavenCreek'})
     elseif month < 9 then
-        OCCL.addTableToBlacklist({['Shirt'] = 'RavenCreekPDClothes.Shirt_Police_RavenCreek',
+        OCCL.Outfitter.addTableToBlacklist({['Shirt'] = 'RavenCreekPDClothes.Shirt_Police_RavenCreek',
                                 ['Jacket'] = 'RavenCreekPDClothes.Jacket_Police_RavenCreek'})
     else
-        OCCL.addTableToBlacklist({['Tshirt'] = 'RavenCreekPDClothes.TShirt_Police_RavenCreek',
+        OCCL.Outfitter.addTableToBlacklist({['Tshirt'] = 'RavenCreekPDClothes.TShirt_Police_RavenCreek',
                                 ['Jacket'] = 'RavenCreekPDClothes.Jacket_Police_RavenCreek'})
     end
 end
 
-OCCL.addSeasonalBannedItems(banRCPDSeasonalItems, OCCL.RCPD.checkEnabled)
+OCCL.Outfitter.addSeasonalBannedItems(OCCL.Outfitter.RCPD.banSeasonalItems, OCCL.RCPD.checkEnabled)

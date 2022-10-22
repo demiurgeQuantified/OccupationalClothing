@@ -24,7 +24,7 @@ function OCCL.STR.checkEnabled()
     return (SandboxVars.OccupationalClothing.WantSTR and (getActivatedMods():contains('STR') or getActivatedMods():contains('SmallTownResponders')))
 end
 
-local function addSTR()
+function OCCL.STR.addClothes()
     OCCL.UpdateClothing('fireofficer', {
         Tshirt = {'TShirt_Profession_FiremanBlue_Meade', 'TShirt_Profession_FiremanRed_Meade', 'TShirt_Profession_FiremanRed_Meade02', 'TShirt_Profession_FiremanWhite_Meade',
                 'TShirt_Profession_FiremanBlue_Rosewood', 'TShirt_Profession_FiremanRed_Rosewood', 'TShirt_Profession_FiremanRed_Rosewood02', 'TShirt_Profession_FiremanWhite_Rosewood',
@@ -111,14 +111,14 @@ local function addSTR()
     end
 end
 
-OCCL.addAdditionalClothing(addSTR, OCCL.STR.checkEnabled)
+OCCL.addAdditionalClothing(OCCL.STR.addClothes, OCCL.STR.checkEnabled)
 
 function OCCL.STR.checkNonspecificEnabled()
     print('checking str nonspecific')
     return (SandboxVars.OccupationalClothing.WantUnemployedNonspecificOutfits and OCCL.STR.checkEnabled())
 end
 
-local function addNonspecificOutfits()
+function OCCL.STR.addNonspecificOutfits()
     OCCL.UpdateClothing('unemployed', {
         Hat = {'Hat_BaseballCap_USPS'},
         Jacket = {'Jacket_USPS', 'Judge_Robe'},
@@ -128,4 +128,4 @@ local function addNonspecificOutfits()
     }, 'STR')
 end
 
-OCCL.addAdditionalClothing(addNonspecificOutfits, OCCL.STR.checkNonspecificEnabled)
+OCCL.addAdditionalClothing(OCCL.STR.addNonspecificOutfits, OCCL.STR.checkNonspecificEnabled)

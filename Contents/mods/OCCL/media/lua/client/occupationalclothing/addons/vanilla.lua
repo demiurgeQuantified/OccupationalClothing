@@ -19,7 +19,7 @@ require 'occupationalclothing/main'
 
 OCCL.Vanilla = {}
 
-local function addDefaultClothing() -- adds clothing options that the vanilla game already gives to professions
+function OCCL.Vanilla.addDefaultClothing() -- adds clothing options that the vanilla game already gives to professions
     local SandboxVars = SandboxVars
 
     OCCL.UpdateClothing('policeofficer', {
@@ -184,9 +184,9 @@ local function addDefaultClothing() -- adds clothing options that the vanilla ga
     end
 end
 
-OCCL.addAdditionalClothing(addDefaultClothing)
+OCCL.addAdditionalClothing(OCCL.Vanilla.addDefaultClothing)
 
-local function addVanillaClothes()
+function OCCL.Vanilla.addClothes()
     OCCL.UpdateClothing('fireofficer', {
         MaskEyes = {'Hat_GasMask'},
     })
@@ -329,13 +329,13 @@ local function addVanillaClothes()
     end
 end
 
-OCCL.addAdditionalClothing(addVanillaClothes)
+OCCL.addAdditionalClothing(OCCL.Vanilla.addClothes)
 
 function OCCL.Vanilla.CheckEMSEnabled()
     return SandboxVars.OccupationalClothing.WantVanillaEMS
 end
 
-local function addVanillaEMS()
+function OCCL.Vanilla.addEMS()
     local SandboxVars = SandboxVars
 
     OCCL.UpdateClothing('policeofficer', {
@@ -381,4 +381,4 @@ local function addVanillaEMS()
     end
 end
 
-OCCL.addAdditionalClothing(addVanillaEMS, OCCL.Vanilla.CheckEMSEnabled)
+OCCL.addAdditionalClothing(OCCL.Vanilla.addEMS, OCCL.Vanilla.CheckEMSEnabled)

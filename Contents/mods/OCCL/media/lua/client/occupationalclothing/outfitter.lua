@@ -19,7 +19,9 @@ require 'occupationalclothing/main'
 if not getActivatedMods():contains('ProfessionFramework') then
     return
 end
-local mapnameToInternal = {['Muldraugh, KY'] = 'Muldraugh', ['Rosewood, KY'] = 'Rosewood', ['Riverside, KY'] = 'Riverside', ['West Point, KY'] = 'WestPoint', ['Louisville, KY'] = 'Louisville', ['OccupiedLouisvilleKY'] = 'Louisville', ['Dixie, KY'] = 'Dixie', ['Ekron, KY'] = 'FallasLake', ['March Ridge, KY'] = 'MarchRidge', ['Valley Station, KY'] = 'ValleyStation'}
+OCCL.Outfitter = {}
+
+OCCL.Outfitter.mapnameToInternal = {['Muldraugh, KY'] = 'Muldraugh', ['Rosewood, KY'] = 'Rosewood', ['Riverside, KY'] = 'Riverside', ['West Point, KY'] = 'WestPoint', ['Louisville, KY'] = 'Louisville', ['OccupiedLouisvilleKY'] = 'Louisville', ['Dixie, KY'] = 'Dixie', ['Ekron, KY'] = 'FallasLake', ['March Ridge, KY'] = 'MarchRidge', ['Valley Station, KY'] = 'ValleyStation'}
 
 local mapTableCallbacks = {}
 local blacklistCallbacks = {}
@@ -28,7 +30,7 @@ local seasonalBanCallbacks = {}
 local mapClothingTables = nil
 local blacklistedItems = {}
 
-local function setSeasonalBannedItems()
+function OCCL.Outfitter.setSeasonalBannedItems()
     local month = SandboxVars.StartMonth -- TODO: check if game has already started, then use current month (getGameTime():getMonth())
     if getActivatedMods():contains('RandStart') then
         if SandboxVars.RSD.randomiseDate then
@@ -38,16 +40,16 @@ local function setSeasonalBannedItems()
     OCCL.Utils.handleCallbacks(seasonalBanCallbacks, month)
 end
 
-local function getMapClothingTables()
+function OCCL.Outfitter.getMapClothingTables()
     if not mapClothingTables then
-        setSeasonalBannedItems()
+        OCCL.Outfitter.setSeasonalBannedItems()
         OCCL.Utils.handleCallbacks(blacklistCallbacks)
         OCCL.Utils.handleCallbacks(mapTableCallbacks)
     end
     return mapClothingTables
 end
 
-local function removeUnwantedClothes(professionTable)
+function OCCL.Outfitter.removeUnwantedClothes(professionTable)
     for profession,outfitTable in pairs(professionTable) do
         for k,v in pairs(blacklistedItems) do
             local desiredType
@@ -89,8 +91,8 @@ local function removeUnwantedClothes(professionTable)
     end
 end
 
-function OCCL.addMapClothingTable(mapName, professionTable)
-    removeUnwantedClothes(professionTable)
+function OCCL.Outfitter.addMapClothingTable(mapName, professionTable)
+    OCCL.Outfitter.removeUnwantedClothes(professionTable)
     if not mapClothingTables then
         mapClothingTables = {}
     end
@@ -112,25 +114,25 @@ function OCCL.addMapClothingTable(mapName, professionTable)
     end
 end
 
-function OCCL.addMultiMapClothingTable(clothingTable)
+function OCCL.Outfitter.addMultiMapClothingTable(clothingTable)
     for mapName,professionTable in pairs(clothingTable) do
-        OCCL.addMapClothingTable(mapName, professionTable)
+        OCCL.Outfitter.addMapClothingTable(mapName, professionTable)
     end
 end
 
-function OCCL.addOutfits(callback, condition)
+function OCCL.Outfitter.addOutfits(callback, condition)
     OCCL.Utils.addToCallbackTable(mapTableCallbacks, callback, condition)
 end
 
-function OCCL.addBlacklistedItems(callback, condition)
+function OCCL.Outfitter.addBlacklistedItems(callback, condition)
     OCCL.Utils.addToCallbackTable(blacklistCallbacks, callback, condition)
 end
 
-function OCCL.addSeasonalBannedItems(callback, condition)
+function OCCL.Outfitter.addSeasonalBannedItems(callback, condition)
     OCCL.Utils.addToCallbackTable(seasonalBanCallbacks, callback, condition)
 end
 
-function OCCL.addToBlacklist(slot, items)
+function OCCL.Outfitter.addToBlacklist(slot, items)
     if not blacklistedItems[slot] then
         blacklistedItems[slot] = {}
     end
@@ -143,19 +145,19 @@ function OCCL.addToBlacklist(slot, items)
     end
 end
 
-function OCCL.addTableToBlacklist(items)
+function OCCL.Outfitter.addTableToBlacklist(items)
     for slot,clothingTable in pairs(items) do
-        OCCL.addToBlacklist(slot, clothingTable)
+        OCCL.Outfitter.addToBlacklist(slot, clothingTable)
     end
 end
 
-local function clearBlacklistedItems()
+function OCCL.Outfitter.clearBlacklistedItems()
     blacklistedItems = {}
 end
 
-local function clearMapClothingTables()
+function OCCL.Outfitter.clearMapClothingTables()
     mapClothingTables = nil
-    clearBlacklistedItems()
+    OCCL.Outfitter.clearBlacklistedItems()
 end
 
 --vanilla overrides
@@ -168,12 +170,12 @@ function CharacterCreationHeader:dressWithDefinitions(definition, resetWornItems
     local mapName
     if MapSpawnSelect.instance.selectedRegion then
         mapName = MapSpawnSelect.instance.selectedRegion['name']
-        mapName = mapnameToInternal[mapName] or mapName
+        mapName = OCCL.Outfitter.mapnameToInternal[mapName] or mapName
     else
         mapName = 'generic'
     end
         
-    local mapClothingTables = getMapClothingTables()
+    local mapClothingTables = OCCL.Outfitter.getMapClothingTables()
     local mapProfessionTable = mapClothingTables[mapName] or mapClothingTables['generic'] or nil
     if mapProfessionTable then
         local desc = MainScreen.instance.desc
@@ -199,7 +201,7 @@ local old_initPlayer = CharacterCreationMain.initPlayer
 
 function CharacterCreationMain:initPlayer()
     old_initPlayer(self)
-    clearMapClothingTables()
+    OCCL.Outfitter.clearMapClothingTables()
 end
 
 local old_onOptionMouseDown = CharacterCreationProfession.onOptionMouseDown
@@ -207,6 +209,6 @@ local old_onOptionMouseDown = CharacterCreationProfession.onOptionMouseDown
 function CharacterCreationProfession:onOptionMouseDown(button, x, y)
 	old_onOptionMouseDown(self, button, x, y)
     if button.internal == 'BACK' then
-        clearMapClothingTables()
+        OCCL.Outfitter.clearMapClothingTables()
     end
 end

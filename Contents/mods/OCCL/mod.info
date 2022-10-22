@@ -1,9 +1,9 @@
-name=Expanded Occupational Clothing
+name=Occupational Clothing
 poster=OCCL.png
 id=OCCL
 description=Adds clothing options to all vanilla occupations. Has extra support for STR, Raven Creek Police Department, and Brita's Armour Pack. If you feel a mod should be supported, please suggest it!
 require=ProfessionFramework
 versionMin=41.00
 authors=albion
-modversion=2.0.3
+modversion=3.0.0
 icon=occlmini.png

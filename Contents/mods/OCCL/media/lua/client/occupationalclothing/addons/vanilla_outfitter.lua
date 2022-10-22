@@ -18,28 +18,30 @@
 require 'occupationalclothing/outfitter'
 require 'occupationalclothing/addons/vanilla'
 
-local function addVanillaBlacklistedItems()
+OCCL.Outfitter.Vanilla = {}
+
+function OCCL.Outfitter.Vanilla.addBlacklistedItems()
     if SandboxVars.OccupationalClothing.WantFireman < 3 then
-        OCCL.addToBlacklist('Jacket', 'Base.Jacket_Fireman')
+        OCCL.Outfitter.addToBlacklist('Jacket', 'Base.Jacket_Fireman')
         if SandboxVars.OccupationalClothing.WantFireman < 2 then
-            OCCL.addToBlacklist('Pants', 'Base.Trousers_Fireman')
+            OCCL.Outfitter.addToBlacklist('Pants', 'Base.Trousers_Fireman')
         end
     end
     if not SandboxVars.OccupationalClothing.WantHardhats then
-        OCCL.addToBlacklist('Hat', 'Base.Hat_Fireman')
+        OCCL.Outfitter.addToBlacklist('Hat', 'Base.Hat_Fireman')
     end
     if not SandboxVars.OccupationalClothing.WantJackets then
         local bannedJackets = {'Base.Jacket_Police', 'Base.Jacket_Ranger'}
-        OCCL.addToBlacklist('Jacket', bannedJackets)
+        OCCL.Outfitter.addToBlacklist('Jacket', bannedJackets)
     end
     if not SandboxVars.OccupationalClothing.WantVests then
-        OCCL.addToBlacklist('TorsoExtra', 'Base.Vest_BulletPolice')
+        OCCL.Outfitter.addToBlacklist('TorsoExtra', 'Base.Vest_BulletPolice')
     end
 end
 
-OCCL.addBlacklistedItems(addVanillaBlacklistedItems)
+OCCL.Outfitter.addBlacklistedItems(OCCL.Outfitter.Vanilla.addBlacklistedItems)
 
-local function generateVanillaMapClothingTables()
+function OCCL.Outfitter.Vanilla.generateMapClothingTables()
     local professionTable = {}
 
     professionTable['burgerflipper'] = {
@@ -102,24 +104,24 @@ local function generateVanillaMapClothingTables()
         }
     end
 
-    OCCL.addMapClothingTable('generic', professionTable)
+    OCCL.Outfitter.addMapClothingTable('generic', professionTable)
 end
 
-OCCL.addOutfits(generateVanillaMapClothingTables)
+OCCL.Outfitter.addOutfits(OCCL.Outfitter.Vanilla.generateMapClothingTables)
 
-local function banVanillaSeasonalItems(month)
+function OCCL.Outfitter.Vanilla.banSeasonalItems(month)
     if month == 12 or month < 3 then
-        OCCL.addToBlacklist('Tshirt', {'Base.Tshirt_PoliceBlue', 'Base.Tshirt_PoliceGrey', 'Base.Tshirt_Ranger'})
+        OCCL.Outfitter.addToBlacklist('Tshirt', {'Base.Tshirt_PoliceBlue', 'Base.Tshirt_PoliceGrey', 'Base.Tshirt_Ranger'})
     elseif month < 6 then
-        OCCL.addTableToBlacklist({['Tshirt'] = {'Base.Tshirt_PoliceBlue', 'Base.Tshirt_PoliceGrey', 'Base.Tshirt_Ranger'},
+        OCCL.Outfitter.addTableToBlacklist({['Tshirt'] = {'Base.Tshirt_PoliceBlue', 'Base.Tshirt_PoliceGrey', 'Base.Tshirt_Ranger'},
                                 ['Jacket'] = {'Base.Jacket_Police', 'Base.Jacket_Ranger'}})
     elseif month < 9 then
-        OCCL.addTableToBlacklist({['Shirt'] = {'Base.Shirt_PoliceBlue', 'Base.Shirt_PoliceGrey', 'Base.Shirt_OfficerWhite', 'Base.Shirt_Ranger'},
+        OCCL.Outfitter.addTableToBlacklist({['Shirt'] = {'Base.Shirt_PoliceBlue', 'Base.Shirt_PoliceGrey', 'Base.Shirt_OfficerWhite', 'Base.Shirt_Ranger'},
                                 ['Jacket'] = {'Base.Jacket_Police', 'Base.Jacket_Ranger'}})
     else
-        OCCL.addTableToBlacklist({['Tshirt'] = {'Base.Tshirt_PoliceBlue', 'Base.Tshirt_PoliceGrey', 'Base.Tshirt_Ranger'},
+        OCCL.Outfitter.addTableToBlacklist({['Tshirt'] = {'Base.Tshirt_PoliceBlue', 'Base.Tshirt_PoliceGrey', 'Base.Tshirt_Ranger'},
                                 ['Jacket'] = {'Base.Jacket_Police', 'Base.Jacket_Ranger'}})
     end
 end
 
-OCCL.addSeasonalBannedItems(banVanillaSeasonalItems, OCCL.Vanilla.CheckEMSEnabled)
+OCCL.Outfitter.addSeasonalBannedItems(OCCL.Outfitter.Vanilla.banSeasonalItems, OCCL.Vanilla.CheckEMSEnabled)
