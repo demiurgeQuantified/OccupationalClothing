@@ -65,7 +65,6 @@ local function getFirefighterOutfits(department)
 end
 
 function OCCL.Outfitter.STR.generateClothingTables()
-    local jeffersonPolice = getPoliceOutfit('JeffersonPD')
     local jeffersonSheriff = getPoliceOutfit('JeffersonSD')
     local meadeEMS = getEMSOutfit('Meade')
     local jeffersonEMS = getEMSOutfit('Jefferson')
@@ -95,7 +94,7 @@ function OCCL.Outfitter.STR.generateClothingTables()
             ['nurse'] = {meadeEMS}
         },
         ['Louisville'] = {
-            ['policeofficer'] = {getPoliceOutfit('Louisville')},
+            ['policeofficer'] = {getPoliceOutfit('Louisville'), getPoliceOutfit('JeffersonPD')},
             ['fireofficer'] = louisvilleFire,
             ['nurse'] = {getEMSOutfit('Louisville')}
         },
