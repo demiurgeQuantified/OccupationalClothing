@@ -74,6 +74,22 @@ option OccupationalClothing.WantSTR
 	translation = OccupationalClothing_WantSTR,
 }
 
+option OccupationalClothing.WantSTRFormalDress
+{
+	type = boolean,
+	default = false,
+	page = OccupationalClothing,
+	translation = OccupationalClothing_WantSTRFormalDress,
+}
+
+option OccupationalClothing.STRBadges
+{
+	type = boolean,
+	default = true,
+	page = OccupationalClothing,
+	translation = OccupationalClothing_STRBadges,
+}
+
 option OccupationalClothing.WantRavenCreekPD
 {
 	type = boolean,
@@ -88,14 +104,6 @@ option OccupationalClothing.WantBrita
 	default = false,
 	page = OccupationalClothing,
 	translation = OccupationalClothing_WantBrita,
-}
-
-option OccupationalClothing.STRBadges
-{
-	type = boolean,
-	default = true,
-	page = OccupationalClothing,
-	translation = OccupationalClothing_STRBadges,
 }
 
 option OccupationalClothing.LegacyMethod
