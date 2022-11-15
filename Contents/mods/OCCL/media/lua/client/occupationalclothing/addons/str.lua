@@ -162,7 +162,7 @@ function OCCL.STR.addDressOutfits()
     OCCL.UpdateClothing('parkranger', {
         Gloves = {'Gloves_Dress_White'},
     }, 'STR')
-    OCCL.UpdateClothing('EMS', {
+    OCCL.UpdateClothing('nurse', {
         Hat = {'Hat_EMS_Jefferson', 'Hat_EMS_Louisville', 'Hat_EMS_Meade'},
         Gloves = {'Gloves_Dress_White'},
     }, 'STR')
@@ -177,7 +177,7 @@ function OCCL.STR.addDressOutfits()
         OCCL.UpdateClothing('parkranger', {
             Jacket = {'Jacket_Dress_Federal_Ranger', 'Jacket_Dress_State_Ranger', 'Jacket_Dress_State_Law_Ranger'},
         }, 'STR')
-        OCCL.UpdateClothing('EMS', {
+        OCCL.UpdateClothing('nurse', {
             Jacket = {'Jacket_Dress_EMS_Jefferson', 'Jacket_Dress_EMS_Louisville', 'Jacket_Dress_EMS_Meade'},
         }, 'STR')
     end
