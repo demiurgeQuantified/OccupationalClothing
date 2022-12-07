@@ -31,6 +31,7 @@ local badgeTable = {
 local function grantItems()
     if not SandboxVars.OccupationalClothing.STRBadges then return end
 	local character = getPlayer()
+	if character:getModData().occlBadge then return end
 	local profession = character:getDescriptor():getProfession()
 	if not badgeTable[profession] then return end
 	for _,location in pairs(clothingPriorities) do
@@ -39,6 +40,7 @@ local function grantItems()
 			for k,v in pairs(badgeTable[profession]) do
 				if luautils.stringEnds(item:getType(), k) then
 					character:getInventory():AddItem(v)
+					character:getModData().occlBadge = true
 					return
 				end
 			end
