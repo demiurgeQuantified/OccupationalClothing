@@ -8,10 +8,7 @@ description=[url=https://steamcommunity.com/sharedfiles/filedetails/?id=26238550
 description=[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2599486479]Raven Creek Police Department[/url]
 description=[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2460154811]Brita's Armour Pack[/url]
 description=
-description=Sandbox variables also allow you to configure what items are available at character creation - you can restrict armour, hardhats, gloves, firefighter suits, etc. These options extend to vanilla clothing.
-description=
-description=Future features:
-description='Hardmode' that only allows items that offer no zombie resistance at all
+description=Sandbox variables allow you to configure what items are available at character creation - you can restrict armour, hardhats, gloves, firefighter suits, etc.
 description=
 description=If there are any errors or you have any suggestions, please let me know!
 description=
