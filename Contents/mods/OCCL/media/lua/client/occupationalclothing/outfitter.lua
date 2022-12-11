@@ -212,3 +212,10 @@ function CharacterCreationProfession:onOptionMouseDown(button, x, y)
         OCCL.Outfitter.clearMapClothingTables()
     end
 end
+
+local old_instantiate = MainScreen.instantiate
+
+function MainScreen:instantiate()
+    old_instantiate(self)
+    OCCL.Outfitter.clearMapClothingTables()
+end
