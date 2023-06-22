@@ -31,8 +31,9 @@ function OCCL.STR.addClothes()
                 'TShirt_Profession_FiremanBlue_Rosewood', 'TShirt_Profession_FiremanRed_Rosewood', 'TShirt_Profession_FiremanRed_Rosewood02', 'TShirt_Profession_FiremanWhite_Rosewood',
                 'TShirt_Profession_FiremanBlue_Louisville', 'TShirt_Profession_FiremanRed_Louisville', 'TShirt_Profession_FiremanRed_Louisville02', 'TShirt_Profession_FiremanWhite_Louisville',
                 'TShirt_Fire_Louisville', 'TShirt_Fire_Supervisor_Louisville', 'TShirt_Fire_Meade', 'TShirt_Fire_Supervisor_Meade', 'TShirt_Fire_Rosewood', 'TShirt_Fire_Supervisor_Rosewood',},
-        Pants = {'Trousers_Fire_Formal_Louisville', 'Trousers_Fire_Formal_Meade', 'Trousers_Fire_Formal_Rosewood',}
-    }, 'STR')
+        Pants = {'Trousers_Fire_Formal_Louisville', 'Trousers_Fire_Formal_Meade', 'Trousers_Fire_Formal_Rosewood',},
+        Neck = {'Tie_Full_Fire_Louisville', 'Tie_Worn_Fire_Louisville',},
+	}, 'STR')
 
     OCCL.UpdateClothing('policeofficer', {
         Hat = {'Hat_Police_Muldraugh', 'Hat_Police_Meade', 'Hat_Police_WestPoint', 'Hat_Police_Riverside', 'Hat_Police_Rosewood', 
@@ -45,9 +46,12 @@ function OCCL.STR.addClothes()
         Pants = {'Trousers_Police_Muldraugh', 'Trousers_Police_Meade', 'Trousers_Police_WestPoint', 'Trousers_Police_Riverside', 'Trousers_Police_Rosewood',
                 'Trousers_Police_Louisville', 'Trousers_Police_JeffersonPD', 'Trousers_Police_JeffersonSD', 'Trousers_PoliceKSP_Summer', 'Trousers_PoliceKSP_Winter',
                 'Trousers_DOC_Meade', 'Trousers_DOC_Jefferson'},
-        Neck = {'Tie_Full_KSP'},
-        Tail = {'Chest_Walkie'},
-        BeltExtra = {'Belt_PoliceDuty'},
+        Neck = {'Tie_Full_KSP', 'Tie_Worn_KSP', 'Tie_Full_Police_Jefferson',
+				'Tie_Worn_Police_Jefferson', 'Tie_Full_Police_Louisville', 'Tie_Worn_Police_Louisville', 'Tie_Full_Police_Meade', 'Tie_Worn_Police_Meade', 'Tie_Full_Police_Muldraugh', 'Tie_Worn_Police_Muldraugh',
+				'Tie_Full_Police_Riverside', 'Tie_Worn_Police_Riverside', 'Tie_Full_Police_Rosewood', 'Tie_Worn_Police_Rosewood', 'Tie_Full_Police_WestPoint', 'Tie_Worn_Police_WestPoint', 'Tie_Full_Sheriff_Jefferson',
+				'Tie_Worn_Sheriff_Jefferson'},
+        ChestWalkie = {'Chest_Walkie'},
+        DutyBelt = {'Belt_PoliceDuty'},
     }, 'STR')
 
     OCCL.UpdateClothing('parkranger', {
@@ -59,7 +63,13 @@ function OCCL.STR.addClothes()
     }, 'STR')
 
     OCCL.UpdateClothing('securityguard', {
-        Tail = {'Chest_Walkie'},
+        Hat = {'Hat_Security_Bank', 'Hat_Security_Hotel_Havisham', 'Hat_Security_Mall_Ohio', 'Hat_Security_Mall_Valley', 'Hat_Security_Mall_LV'},
+        Shirt = {'Shirt_Security_Bank', 'Shirt_Security_Hotel_Havisham', 'Shirt_Security_Hotel_Fancy', 'Shirt_Security_Mall_Ohio', 'Shirt_Security_Mall_Valley', 'Shirt_Security_Mall_LV'},
+        Tshirt = {'TShirt_Security_Bank', 'TShirt_Security_Hotel_Havisham', 'TShirt_Polo_Security_Hotel_Fancy', 'TShirt_Security_Mall_Ohio', 'TShirt_Security_Mall_Valley', 'TShirt_Security_Mall_LV'},
+        Pants = {'Trousers_Security_Bank', 'Trousers_Security_Hotel_Havisham', 'Trousers_Security_Hotel_Fancy', 'Trousers_Security_Mall_Ohio', 'Trousers_Security_Mall_Valley', 'Trousers_Security_Mall_LV'},
+        ChestWalkie = {'Chest_Walkie'},
+        Neck = {'Tie_Full_Security_Bank', 'Tie_Worn_Security_Bank', 'Tie_Full_Security_Hotel_Havisham', 'Tie_Worn_Security_Hotel_Havisham',
+				'Tie_Full_Security_Hotel_Fancy', 'Tie_Worn_Security_Hotel_Fancy', 'Tie_Full_Security_Mall_Ohio', 'Tie_Worn_Security_Mall_Ohio'},
     }, 'STR')
 
     OCCL.UpdateClothing('nurse', {
@@ -78,6 +88,10 @@ function OCCL.STR.addClothes()
 
         OCCL.UpdateClothing('parkranger', {
             Jacket = {'Jacket_Federal_Ranger', 'Jacket_State_LawRanger', 'Jacket_State_Ranger'},
+        }, 'STR')
+
+        OCCL.UpdateClothing('securityguard', {
+            Jacket = {'Jacket_Security_Bank', 'Jacket_Dress_Security_Hotel_Havisham', 'Jacket_Suit_Security_Hotel_Fancy', 'Jacket_Security_Mall_Ohio', 'Jacket_Security_Mall_Valley', 'Jacket_Security_Mall_LV', 'Jacket_Sweater_Security_Hotel_Havisham', 'Jacket_Sweater_Security_Bank'},
         }, 'STR')
 
         OCCL.UpdateClothing('nurse', {

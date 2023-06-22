@@ -27,12 +27,15 @@ Sandbox_EN = {
 	Sandbox_OccupationalClothing_WantVanillaEMS_tooltip = "Disable to reduce clutter when using mods that add a lot of uniforms.",
 
 	Sandbox_OccupationalClothing_WantSTR = "Small Town First Responders support",
-	Sandbox_OccupationalClothing_WantSTR_tooltip = "STFR uniforms for the fire officer, police officer, park ranger and nurse occupations. Does nothing if STFR is not enabled.",
+	Sandbox_OccupationalClothing_WantSTR_tooltip = "STFR uniforms for the fire officer, police officer, park ranger, security guard and nurse occupations. Does nothing if STFR is not enabled.",
 	Sandbox_OccupationalClothing_WantSTRFormalDress = "STFR: Dress uniforms",
 	Sandbox_OccupationalClothing_WantSTRFormalDress_tooltip = "Formal dress uniforms for the appropriate occupations.",
 
-	Sandbox_OccupationalClothing_WantRavenCreekPD = "Raven Creek PD",
-	Sandbox_OccupationalClothing_WantRavenCreekPD_tooltip = "Raven Creek PD uniform for the police officer, as well as the helicopter pilot suit if that submod is enabled.",
+	Sandbox_OccupationalClothing_WantRavenCreekPD = "STFR: Raven Creek Content",
+	Sandbox_OccupationalClothing_WantRavenCreekPD_tooltip = "Raven Creek uniforms for the fire officer, police officer, and nurse occupations. Does nothing if STFR and RavenCreek are not enabled.",
+	Sandbox_OccupationalClothing_WantTandilPD = "STFR Tandil: Content",
+	Sandbox_OccupationalClothing_WantTandilPD_tooltip = "Tandil uniforms for the fire officer, police officer, and nurse occupations. Does nothing if STFR and Tandil are not enabled.",
+
 	Sandbox_OccupationalClothing_WantBrita = "Brita's Armour Pack",
 	Sandbox_OccupationalClothing_WantBrita_tooltip = "Brita's Armour Pack items for the veteran. Doesn't do much if you don't have Veteran Army Uniforms enabled.",
 
