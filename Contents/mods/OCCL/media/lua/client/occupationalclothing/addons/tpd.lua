@@ -21,7 +21,7 @@ require 'occupationalclothing/main'
 OCCL.RCPD = {}
 
 function OCCL.RCPD.checkEnabled()
-    return (SandboxVars.OccupationalClothing.WantTandilPD and getActivatedMods():contains('STR') and getActivatedMods():contains('Tandil'))
+    return (SandboxVars.OccupationalClothing.WantSTR and getActivatedMods():contains('STR') and getActivatedMods():contains('Tandil'))
 end
 
 function OCCL.RCPD.addClothes()

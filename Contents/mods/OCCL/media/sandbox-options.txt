@@ -90,22 +90,6 @@ option OccupationalClothing.STRBadges
 	translation = OccupationalClothing_STRBadges,
 }
 
-option OccupationalClothing.WantRavenCreekPD
-{
-	type = boolean,
-	default = true,
-	page = OccupationalClothing,
-	translation = OccupationalClothing_WantRavenCreekPD,
-}
-
-option OccupationalClothing.WantTandilPD
-{
-	type = boolean,
-	default = true,
-	page = OccupationalClothing,
-	translation = OccupationalClothing_WantTandil,
-}
-
 option OccupationalClothing.WantBrita
 {
 	type = boolean,
