@@ -23,15 +23,40 @@ OCCL.Outfitter.RCPD = {}
 function OCCL.Outfitter.RCPD.generateMapClothingTables()
     local professionTable = {}
 
+    professionTable['fireofficer'] = {
+        {
+            ['Hat'] = 'STR.Hat_Fireman_RavenCreek_Yellow',
+            ['Jacket'] = 'STR.Jacket_Fireman_RavenCreek_Khaki',
+            ['Tshirt'] = {'STR.TShirt_Profession_FiremanBlue_RavenCreek', 'STR.TShirt_Profession_FiremanRed_RavenCreek', 'STR.TShirt_Profession_FiremanRed_RavenCreek02', 'STR.TShirt_Profession_FiremanWhite_RavenCreek',},
+            ['Pants'] = 'STR.Trousers_Fireman_RavenCreek_Khaki',
+            ['Shoes'] = 'Base.Shoes_ArmyBoots',
+        },
+        {
+            ['Hat'] = 'STR.Hat_Fireman_RavenCreek_Red',
+            ['Jacket'] = 'STR.Jacket_Fireman_RavenCreek_Black',
+            ['Tshirt'] = {'STR.TShirt_Profession_FiremanBlue_RavenCreek', 'STR.TShirt_Profession_FiremanRed_RavenCreek', 'STR.TShirt_Profession_FiremanRed_RavenCreek02', 'STR.TShirt_Profession_FiremanWhite_RavenCreek',},
+            ['Pants'] = 'STR.Trousers_Fireman_RavenCreek_Black',
+            ['Shoes'] = 'Base.Shoes_ArmyBoots',
+        },
+    }
     professionTable['policeofficer'] = {
         {
-            ['Hat'] = 'RavenCreekPDClothes.Hat_Police_RavenCreek',
-            ['Jacket'] = 'RavenCreekPDClothes.Jacket_Police_RavenCreek',
-            ['Shirt'] = 'RavenCreekPDClothes.Shirt_Police_RavenCreek',
-            ['Tshirt'] = 'RavenCreekPDClothes.TShirt_Police_RavenCreek',
+            ['Hat'] = 'STR.Hat_Police_RavenCreek',
+            ['Jacket'] = 'STR.Jacket_Police_RavenCreek',
+            ['Shirt'] = 'STR.Shirt_Police_RavenCreek',
+            ['Tshirt'] = 'STR.TShirt_Police_RavenCreek',
             ['TorsoExtra'] = 'Base.Vest_BulletPolice',
-            ['Pants'] = 'RavenCreekPDClothes.Trousers_Police_RavenCreek',
-            ['Neck'] = '',
+            ['Pants'] = 'STR.Trousers_Police_RavenCreek',
+            ['Neck'] = {'STR.Tie_Full_Police_RavenCreek', 'STR.Tie_Worn_Police_RavenCreek',},
+        },
+    }
+    professionTable['nurse'] = {
+        {
+            ['Hat'] = 'STR.Hat_BaseballCap_EMS_RavenCreek',
+            ['Jacket'] = 'STR.Jacket_EMS_RavenCreek',
+            ['Shirt'] = 'STR.Shirt_EMS_RavenCreek',
+            ['Tshirt'] = 'STR.TShirt_EMS_RavenCreek',
+            ['Pants'] = 'STR.Trousers_EMS_RavenCreek',
         },
     }
 
@@ -41,8 +66,24 @@ end
 OCCL.Outfitter.addOutfits(OCCL.Outfitter.RCPD.generateMapClothingTables, OCCL.RCPD.checkEnabled)
 
 function OCCL.Outfitter.RCPD.addBlacklistedItems()
+    if SandboxVars.OccupationalClothing.WantFireman < 3 then
+        local bannedJackets = {'STR.Jacket_Fireman_RavenCreek_Black', 'STR.Jacket_Fireman_RavenCreek_Khaki'}
+        OCCL.Outfitter.addToBlacklist('Jacket', bannedJackets)
+        if SandboxVars.OccupationalClothing.WantFireman < 2 then
+            local bannedTrousers = {'STR.Trousers_Fireman_RavenCreek_Black', 'STR.Trousers_Fireman_RavenCreek_Khaki'}
+            OCCL.Outfitter.addToBlacklist('Pants', bannedTrousers)
+        end
+    end
+
+    if not SandboxVars.OccupationalClothing.WantHardhats then
+        local bannedHats = {'STR.Hat_Fireman_RavenCreek_Blue', 'STR.Hat_Fireman_RavenCreek_Black', 'STR.Hat_Fireman_RavenCreek_Red',
+        'STR.Hat_Fireman_RavenCreek_Yellow'}
+        OCCL.Outfitter.addToBlacklist('Hat', bannedHats)
+    end
+
     if not SandboxVars.OccupationalClothing.WantJackets then
-        OCCL.Outfitter.addToBlacklist('Jacket', 'RavenCreekPDClothes.Jacket_Police_RavenCreek')
+        local bannedJackets = {'STR.Jacket_Police_RavenCreek', 'STR.Jacket_EMS_RavenCreek'}
+        OCCL.Outfitter.addToBlacklist('Jacket', bannedJackets)
     end
 end
 
@@ -50,16 +91,16 @@ OCCL.Outfitter.addBlacklistedItems(OCCL.Outfitter.RCPD.addBlacklistedItems, OCCL
 
 function OCCL.Outfitter.RCPD.banSeasonalItems(month)
     if month == 12 or month < 3 then
-        OCCL.Outfitter.addToBlacklist('Tshirt', 'RavenCreekPDClothes.TShirt_Police_RavenCreek')
+        OCCL.Outfitter.addToBlacklist({['Tshirt'] = {'STR.TShirt_Police_RavenCreek', 'STR.TShirt_EMS_RavenCreek'}})
     elseif month < 6 then
-        OCCL.Outfitter.addTableToBlacklist({['Tshirt'] = 'RavenCreekPDClothes.TShirt_Police_RavenCreek',
-                                ['Jacket'] = 'RavenCreekPDClothes.Jacket_Police_RavenCreek'})
+        OCCL.Outfitter.addTableToBlacklist({['Tshirt'] = {'STR.TShirt_Police_RavenCreek', 'STR.TShirt_EMS_RavenCreek'},
+                                ['Jacket'] = {'STR.Jacket_Police_RavenCreek', 'STR.Jacket_EMS_RavenCreek'}})
     elseif month < 9 then
-        OCCL.Outfitter.addTableToBlacklist({['Shirt'] = 'RavenCreekPDClothes.Shirt_Police_RavenCreek',
-                                ['Jacket'] = 'RavenCreekPDClothes.Jacket_Police_RavenCreek'})
+        OCCL.Outfitter.addTableToBlacklist({['Shirt'] = {'STR.Shirt_Police_RavenCreek', 'STR.Shirt_EMS_RavenCreek'},
+                                ['Jacket'] = {'STR.Jacket_Police_RavenCreek', 'STR.Jacket_EMS_RavenCreek'}})
     else
-        OCCL.Outfitter.addTableToBlacklist({['Tshirt'] = 'RavenCreekPDClothes.TShirt_Police_RavenCreek',
-                                ['Jacket'] = 'RavenCreekPDClothes.Jacket_Police_RavenCreek'})
+        OCCL.Outfitter.addTableToBlacklist({['Tshirt'] = {'STR.TShirt_Police_RavenCreek', 'STR.TShirt_EMS_RavenCreek'},
+                                ['Jacket'] = {'STR.Jacket_Police_RavenCreek', 'STR.Jacket_EMS_RavenCreek'}})
     end
 end
 

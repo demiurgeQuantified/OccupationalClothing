@@ -21,10 +21,13 @@ local clothingPriorities = {'Shirt', 'Tshirt', 'Jacket'}
 local badgeTable = {
 	parkranger = {
 		Federal_Ranger = 'STR.FederalRangerBadge', State_Ranger = 'STR.StateRangerBadge', State_LawRanger = 'STR.StateLawRangerBadge'},
+	securityguard = {
+		Bank = 'STR.SecurityBankBadge', Havisham = 'STR.SecurityHotelHavishamBadge', Ohio = 'STR.SecurityMallOhioBadge', Valley = 'STR.SecurityMallValleyBadge', LV = 'STR.SecurityMallLVBadge'},
 	policeofficer = {
 		Muldraugh = 'STR.MuldraughPoliceBadge', Rosewood = 'STR.RosewoodSheriffBadge', WestPoint = 'STR.WestPointPoliceBadge',
 		Riverside = 'STR.RiversidePoliceBadge', Louisville = 'STR.LouisvillePoliceBadge',
 		Meade = 'STR.MeadeSheriffBadge', JeffersonPD = 'STR.JeffersonPoliceBadge', JeffersonSD = 'STR.JeffersonSheriffBadge', KSP = 'STR.KSPPoliceBadge',
+		RavenCreek = 'STR.RavenCreekPoliceBadge', Tandil = 'STR.TandilPoliceBadge',
 	}
 }
 

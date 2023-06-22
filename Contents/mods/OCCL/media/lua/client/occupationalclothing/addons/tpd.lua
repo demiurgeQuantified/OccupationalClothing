@@ -21,61 +21,60 @@ require 'occupationalclothing/main'
 OCCL.RCPD = {}
 
 function OCCL.RCPD.checkEnabled()
-    return (SandboxVars.OccupationalClothing.WantRavenCreekPD and getActivatedMods():contains('STR') and getActivatedMods():contains('RavenCreek'))
+    return (SandboxVars.OccupationalClothing.WantTandilPD and getActivatedMods():contains('STR') and getActivatedMods():contains('Tandil'))
 end
 
 function OCCL.RCPD.addClothes()
     OCCL.UpdateClothing('fireofficer', {
-        Shirt = {'Shirt_Fire_RavenCreek', 'Shirt_Fire_Supervisor_RavenCreek'},
-        Tshirt = {'TShirt_Profession_FiremanBlue_RavenCreek', 'TShirt_Profession_FiremanRed_RavenCreek', 'TShirt_Profession_FiremanRed_RavenCreek02', 'TShirt_Profession_FiremanWhite_RavenCreek',},
-        Pants = {'Trousers_Fire_Formal_RavenCreek',},
-        Neck = {'Tie_Full_Fire_RavenCreek', 'Tie_Worn_Fire_RavenCreek',},
+        Shirt = {'Shirt_Fire_Tandil'},
+        Tshirt = {'TShirt_Profession_FiremanBlue_Tandil', 'TShirt_Profession_FiremanRed_Tandil', 'TShirt_Profession_FiremanRed_Tandil02', 'TShirt_Profession_FiremanWhite_Tandil',},
+        Pants = {'Trousers_Fire_Formal_Tandil',},
     }, 'STR')
     OCCL.UpdateClothing('policeofficer', {
-        Hat = {'Hat_Police_RavenCreek', 'Hat_BaseballCap_DOC_RavenCreek'},
-        Shirt = {'Shirt_Police_RavenCreek', 'Shirt_DOC_RavenCreek'},
-        Tshirt = {'TShirt_Police_RavenCreek', 'TShirt_DOC_RavenCreek'},
-        Pants = {'Trousers_Police_RavenCreek', 'Trousers_DOC_RavenCreek'},
-		Neck = {'Tie_Full_Police_RavenCreek', 'Tie_Worn_Police_RavenCreek'},
+        Hat = {'Hat_Police_Tandil'},
+        Shirt = {'Shirt_Police_Tandil'},
+        Tshirt = {'TShirt_Police_Tandil'},
+        Pants = {'Trousers_Police_Tandil'},
+		Neck = {'Tie_Full_Police_Tandil', 'Tie_Worn_Police_Tandil'},
         --ChestWalkie = {'Chest_Walkie'},
         --DutyBelt = {'Belt_PoliceDuty'},
 	}, 'STR')
     OCCL.UpdateClothing('nurse', {
-        Hat = {'Hat_BaseballCap_EMS_RavenCreek'},
-        Shirt = {'Shirt_EMS_RavenCreek', 'Shirt_EMS_Supervisor_RavenCreek'},
-        Tshirt = {'TShirt_EMS_RavenCreek', 'TShirt_EMS_Supervisor_RavenCreek'},
-        Pants = {'Trousers_EMS_RavenCreek'},
+        Hat = {'Hat_BaseballCap_EMS_Tandil'},
+        Shirt = {'Shirt_EMS_Tandil'},
+        Tshirt = {'TShirt_EMS_Tandil'},
+        Pants = {'Trousers_EMS_Tandil'},
     }, 'STR')
 
     if SandboxVars.OccupationalClothing.WantJackets then
         OCCL.UpdateClothing('policeofficer', {
-            Jacket = {'Jacket_Police_RavenCreek', 'Jacket_DOC_RavenCreek'},
+            Jacket = {'Jacket_Police_Tandil'},
         }, 'STR')
         OCCL.UpdateClothing('nurse', {
-            Jacket = {'Jacket_EMS_RavenCreek'},
+            Jacket = {'Jacket_EMS_Tandil'},
         }, 'STR')
     end
     if SandboxVars.OccupationalClothing.WantVests then
         OCCL.UpdateClothing('policeofficer', {
-            Hat = {'Hat_Riot_Helmet_RavenCreek'},
+            Hat = {'Hat_Riot_Helmet_Tandil'},
         }, 'STR')
     end
 
     if SandboxVars.OccupationalClothing.WantFireman > 1 then
         OCCL.UpdateClothing('fireofficer', {
-            Pants = {'Trousers_Fireman_RavenCreek_Black', 'Trousers_Fireman_RavenCreek_Khaki'},
+            Pants = {'Trousers_Fireman_Tandil_Black', 'Trousers_Fireman_Tandil_Khaki'},
         }, 'STR')
         if SandboxVars.OccupationalClothing.WantFireman > 2 then
             OCCL.UpdateClothing('fireofficer', {
-                Jacket = {'Jacket_Fireman_RavenCreek_Black', 'Jacket_Fireman_RavenCreek_Khaki'},
+                Jacket = {'Jacket_Fireman_Tandil_Black', 'Jacket_Fireman_Tandil_Khaki'},
             }, 'STR')
         end
     end
 
     if SandboxVars.OccupationalClothing.WantHardhats then
         OCCL.UpdateClothing('fireofficer', {
-            Hat = {'Hat_Fireman_RavenCreek_Blue', 'Hat_Fireman_RavenCreek_Black', 'Hat_Fireman_RavenCreek_Red',
-            'Hat_Fireman_RavenCreek_Yellow'},
+            Hat = {'Hat_Fireman_Tandil_Blue', 'Hat_Fireman_Tandil_Black', 'Hat_Fireman_Tandil_Red',
+            'Hat_Fireman_Tandil_Yellow'},
         }, 'STR')
     end
 end
@@ -87,21 +86,12 @@ function OCCL.RCPD.checkDressEnabled()
 end
 
 function OCCL.RCPD.addDressOutfits()
-    OCCL.UpdateClothing('fireofficer', {
-        Hat = {'Hat_Fire_RavenCreek', 'Hat_Fire_Supervisor_RavenCreek', 'Hat_Fire_Supervisor_RavenCreek_White'},
-    }, 'STR')
-    OCCL.UpdateClothing('nurse', {
-        Hat = {'Hat_EMS_RavenCreek', 'Hat_EMS_RavenCreek_Supervisor', 'Hat_EMS_RavenCreek_Supervisor_White'},
+    OCCL.UpdateClothing('policeofficer', {
+        Hat = {'Hat_Police_Tandil_Dress'},
     }, 'STR')
     if SandboxVars.OccupationalClothing.WantJackets then
-        OCCL.UpdateClothing('fireofficer', {
-            Jacket = {'Jacket_Dress_Fire_RavenCreek'},
-        }, 'STR')
         OCCL.UpdateClothing('policeofficer', {
-            Jacket = {'Jacket_Dress_Police_RavenCreek'},
-        }, 'STR')
-        OCCL.UpdateClothing('nurse', {
-            Jacket = {'Jacket_Dress_EMS_RavenCreek', 'Jacket_Dress_EMS_Supervisor_RavenCreek'},
+            Jacket = {'Jacket_Dress_Police_Tandil'},
         }, 'STR')
     end
 end

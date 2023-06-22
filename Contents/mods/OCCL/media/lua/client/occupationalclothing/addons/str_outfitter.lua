@@ -22,7 +22,7 @@ OCCL.Outfitter.STR = {}
 
 local function getPoliceOutfit(department)
     local bulletVest = 'Base.Vest_BulletPolice'
-    if department == 'JeffersonSD' or department == 'Meade' then
+    if department == 'JeffersonSD' or department == 'Meade' or department == 'Rosewood' then
         bulletVest = 'STR.Vest_BulletPolice_Meade'
     end
     return {
@@ -32,7 +32,7 @@ local function getPoliceOutfit(department)
         ['Tshirt'] = 'STR.TShirt_Police_' .. department,
         ['TorsoExtra'] = bulletVest,
         ['Pants'] = 'STR.Trousers_Police_' .. department,
-        ['Neck'] = '',
+        ['Neck'] = {'STR.Tie_Full_Sheriff_' .. department, 'STR.Tie_Worn_Sheriff_' .. department, 'STR.Tie_Full_Police_' .. department, 'STR.Tie_Worn_Police_' .. department,},
     }
 end
 
@@ -53,7 +53,8 @@ local function getFirefighterOutfits(department)
             ['Jacket'] = 'STR.Jacket_Fireman_' .. department .. '_Khaki',
             ['Tshirt'] = {'STR.TShirt_Profession_FiremanBlue_' .. department, 'STR.TShirt_Profession_FiremanRed_' .. department, 'STR.TShirt_Profession_FiremanRed_' .. department .. '02', 'STR.TShirt_Profession_FiremanWhite_' .. department,},
             ['Pants'] = 'STR.Trousers_Fireman_' .. department .. '_Khaki',
-            ['Shoes'] = 'Base.Shoes_ArmyBoots',},
+            ['Shoes'] = 'Base.Shoes_ArmyBoots',
+		},
         {
             ['Hat'] = {'STR.Hat_Fireman_' .. department .. '_Black', 'STR.Hat_Fireman_' .. department .. '_Red',},
             ['Jacket'] = 'STR.Jacket_Fireman_' .. department .. '_Black',
@@ -117,7 +118,7 @@ function OCCL.Outfitter.STR.generateClothingTables()
                     ['Tshirt'] = 'STR.TShirt_PoliceKSP',
                     ['TorsoExtra'] = 'Base.Vest_BulletPolice',
                     ['Pants'] = {'STR.Trousers_PoliceKSP_Summer', 'STR.Trousers_PoliceKSP_Winter'},
-                    ['Neck'] = 'Tie_Full_KSP',
+                    ['Neck'] = {'Tie_Full_KSP', 'Tie_Worn_KSP'},
                 },
             },
             ['nurse'] = {meadeEMS, jeffersonEMS},
@@ -143,6 +144,16 @@ function OCCL.Outfitter.STR.generateClothingTables()
                     ['Shirt'] = 'STR.Shirt_State_Ranger',
                     ['Tshirt'] = 'STR.TShirt_State_Ranger',
                     ['Pants'] = 'STR.Trousers_StateRanger',
+                },
+			},
+            ['securityguard'] = {
+                {
+                    ['Hat'] = 'STR.Hat_Security_Bank',
+                    ['Jacket'] = 'STR.Jacket_Security_Bank',
+                    ['Shirt'] = 'STR.Shirt_Security_Bank',
+                    ['Tshirt'] = 'STR.TShirt_Security_Bank',
+                    ['Pants'] = 'STR.Trousers_Security_Bank',
+                    ['Neck'] = {'Tie_Full_Security_Bank', 'Tie_Worn_Security_Bank'},
                 },
             }
         }
@@ -178,7 +189,10 @@ function OCCL.Outfitter.STR.addBlacklistedItems()
         local bannedJackets = {'STR.Jacket_Police_Muldraugh', 'STR.Jacket_Police_Rosewood', 'STR.Jacket_Police_Riverside',
         'STR.Jacket_Police_WestPoint', 'STR.Jacket_Police_Louisville', 'STR.Jacket_EMS_Louisville', 'STR.Jacket_Police_Meade',
         'STR.Jacket_Police_JeffersonPD', 'STR.Jacket_Police_JeffersonSD', 'STR.Jacket_PoliceKSP', 'STR.Jacket_EMS_Meade',
-        'STR.Jacket_EMS_Jefferson', 'STR.Jacket_Federal_Ranger', 'STR.Jacket_State_LawRanger', 'STR.Jacket_State_Ranger'}
+        'STR.Jacket_EMS_Jefferson', 'STR.Jacket_Federal_Ranger', 'STR.Jacket_State_LawRanger', 'STR.Jacket_State_Ranger',
+        'STR.Jacket_Security_Bank', 'STR.Jacket_Dress_Security_Hotel_Havisham', 'STR.Jacket_Suit_Security_Hotel_Fancy',
+		'STR.Jacket_Security_Mall_Ohio', 'STR.Jacket_Security_Mall_Valley', 'STR.Jacket_Security_Mall_LV', 'STR.Jacket_Sweater_Security_Hotel_Havisham',
+		'STR.Jacket_Sweater_Security_Bank'}
         OCCL.Outfitter.addToBlacklist('Jacket', bannedJackets)
     end
 
@@ -194,37 +208,53 @@ function OCCL.Outfitter.STR.banSeasonalItems(month)
         OCCL.Outfitter.addTableToBlacklist({['Tshirt'] = {'STR.TShirt_Police_Muldraugh', 'STR.TShirt_Police_Rosewood', 'STR.TShirt_Police_Riverside',
         'STR.TShirt_Police_WestPoint', 'STR.TShirt_Police_Louisville', 'STR.TShirt_EMS_Louisville', 'STR.TShirt_Police_Meade',
         'STR.TShirt_Police_JeffersonPD', 'STR.TShirt_Police_JeffersonSD', 'STR.TShirt_PoliceKSP', 'STR.TShirt_EMS_Meade',
-        'STR.TShirt_EMS_Jefferson', 'STR.TShirt_Federal_Ranger', 'STR.TShirt_State_LawRanger', 'STR.TShirt_State_Ranger'},
+        'STR.TShirt_EMS_Jefferson', 'STR.TShirt_Federal_Ranger', 'STR.TShirt_State_LawRanger', 'STR.TShirt_State_Ranger',
+		'STR.TShirt_Security_Bank', 'STR.TShirt_Security_Hotel_Havisham', 'STR.TShirt_Polo_Security_Hotel_Fancy', 'STR.TShirt_Security_Mall_Ohio',
+		'STR.TShirt_Security_Mall_Valley', 'STR.TShirt_Security_Mall_LV'},
         ['Pants'] = 'STR.Trousers_PoliceKSP_Summer'})
     elseif month < 6 then
         OCCL.Outfitter.addTableToBlacklist({['Tshirt'] = {'STR.TShirt_Police_Muldraugh', 'STR.TShirt_Police_Rosewood', 'STR.TShirt_Police_Riverside',
         'STR.TShirt_Police_WestPoint', 'STR.TShirt_Police_Louisville', 'STR.TShirt_EMS_Louisville', 'STR.TShirt_Police_Meade',
         'STR.TShirt_Police_JeffersonPD', 'STR.TShirt_Police_JeffersonSD', 'STR.TShirt_PoliceKSP', 'STR.TShirt_EMS_Meade',
-        'STR.TShirt_EMS_Jefferson', 'STR.TShirt_Federal_Ranger', 'STR.TShirt_State_LawRanger', 'STR.TShirt_State_Ranger'},
+        'STR.TShirt_EMS_Jefferson', 'STR.TShirt_Federal_Ranger', 'STR.TShirt_State_LawRanger', 'STR.TShirt_State_Ranger',
+		'STR.TShirt_Security_Bank', 'STR.TShirt_Security_Hotel_Havisham', 'STR.TShirt_Polo_Security_Hotel_Fancy', 'STR.TShirt_Security_Mall_Ohio',
+		'STR.TShirt_Security_Mall_Valley', 'STR.TShirt_Security_Mall_LV'},
         ['Jacket'] = {'STR.Jacket_Police_Muldraugh', 'STR.Jacket_Police_Rosewood', 'STR.Jacket_Police_Riverside',
         'STR.Jacket_Police_WestPoint', 'STR.Jacket_Police_Louisville', 'STR.Jacket_EMS_Louisville', 'STR.Jacket_Police_Meade',
         'STR.Jacket_Police_JeffersonPD', 'STR.Jacket_Police_JeffersonSD', 'STR.Jacket_PoliceKSP', 'STR.Jacket_EMS_Meade',
-        'STR.Jacket_EMS_Jefferson', 'STR.Jacket_Federal_Ranger', 'STR.Jacket_State_LawRanger', 'STR.Jacket_State_Ranger'},
+        'STR.Jacket_EMS_Jefferson', 'STR.Jacket_Federal_Ranger', 'STR.Jacket_State_LawRanger', 'STR.Jacket_State_Ranger',
+        'STR.Jacket_Security_Bank', 'STR.Jacket_Dress_Security_Hotel_Havisham', 'STR.Jacket_Suit_Security_Hotel_Fancy',
+		'STR.Jacket_Security_Mall_Ohio', 'STR.Jacket_Security_Mall_Valley', 'STR.Jacket_Security_Mall_LV', 'STR.Jacket_Sweater_Security_Hotel_Havisham',
+		'STR.Jacket_Sweater_Security_Bank'},
         ['Pants'] = 'STR.Trousers_PoliceKSP_Winter'})
     elseif month < 9 then
         OCCL.Outfitter.addTableToBlacklist({['Shirt'] = {'STR.Shirt_Police_Muldraugh', 'STR.Shirt_Police_Rosewood', 'STR.Shirt_Police_Riverside',
         'STR.Shirt_Police_WestPoint', 'STR.Shirt_Police_Louisville', 'STR.Shirt_EMS_Louisville', 'STR.Shirt_Police_Meade',
         'STR.Shirt_Police_JeffersonPD', 'STR.Shirt_Police_JeffersonSD', 'STR.Shirt_PoliceKSP', 'STR.Shirt_EMS_Meade',
-        'STR.Shirt_EMS_Jefferson', 'STR.Shirt_Federal_Ranger', 'STR.Shirt_State_LawRanger', 'STR.Shirt_State_Ranger'},
+        'STR.Shirt_EMS_Jefferson', 'STR.Shirt_Federal_Ranger', 'STR.Shirt_State_LawRanger', 'STR.Shirt_State_Ranger',
+		'STR.Shirt_Security_Bank', 'STR.Shirt_Security_Hotel_Havisham', 'STR.Shirt_Security_Hotel_Fancy', 'STR.Shirt_Security_Mall_Ohio', 'STR.Shirt_Security_Mall_Valley', 'STR.Shirt_Security_Mall_LV'},
         ['Jacket'] = {'STR.Jacket_Police_Muldraugh', 'STR.Jacket_Police_Rosewood', 'STR.Jacket_Police_Riverside',
         'STR.Jacket_Police_WestPoint', 'STR.Jacket_Police_Louisville', 'STR.Jacket_EMS_Louisville', 'STR.Jacket_Police_Meade',
         'STR.Jacket_Police_JeffersonPD', 'STR.Jacket_Police_JeffersonSD', 'STR.Jacket_PoliceKSP', 'STR.Jacket_EMS_Meade',
-        'STR.Jacket_EMS_Jefferson', 'STR.Jacket_Federal_Ranger', 'STR.Jacket_State_LawRanger', 'STR.Jacket_State_Ranger'},
+        'STR.Jacket_EMS_Jefferson', 'STR.Jacket_Federal_Ranger', 'STR.Jacket_State_LawRanger', 'STR.Jacket_State_Ranger',
+        'STR.Jacket_Security_Bank', 'STR.Jacket_Dress_Security_Hotel_Havisham', 'STR.Jacket_Suit_Security_Hotel_Fancy',
+		'STR.Jacket_Security_Mall_Ohio', 'STR.Jacket_Security_Mall_Valley', 'STR.Jacket_Security_Mall_LV', 'STR.Jacket_Sweater_Security_Hotel_Havisham',
+		'STR.Jacket_Sweater_Security_Bank'},
         ['Pants'] = 'STR.Trousers_PoliceKSP_Winter'})
     else
         OCCL.Outfitter.addTableToBlacklist({['Tshirt'] = {'STR.TShirt_Police_Muldraugh', 'STR.TShirt_Police_Rosewood', 'STR.TShirt_Police_Riverside',
         'STR.TShirt_Police_WestPoint', 'STR.TShirt_Police_Louisville', 'STR.TShirt_EMS_Louisville', 'STR.TShirt_Police_Meade',
         'STR.TShirt_Police_JeffersonPD', 'STR.TShirt_Police_JeffersonSD', 'STR.TShirt_PoliceKSP', 'STR.TShirt_EMS_Meade',
-        'STR.TShirt_EMS_Jefferson', 'STR.TShirt_Federal_Ranger', 'STR.TShirt_State_LawRanger', 'STR.TShirt_State_Ranger'},
+        'STR.TShirt_EMS_Jefferson', 'STR.TShirt_Federal_Ranger', 'STR.TShirt_State_LawRanger', 'STR.TShirt_State_Ranger',
+		'STR.TShirt_Security_Bank', 'STR.TShirt_Security_Hotel_Havisham', 'STR.TShirt_Polo_Security_Hotel_Fancy', 'STR.TShirt_Security_Mall_Ohio',
+		'STR.TShirt_Security_Mall_Valley', 'STR.TShirt_Security_Mall_LV'},
         ['Jacket'] = {'STR.Jacket_Police_Muldraugh', 'STR.Jacket_Police_Rosewood', 'STR.Jacket_Police_Riverside',
         'STR.Jacket_Police_WestPoint', 'STR.Jacket_Police_Louisville', 'STR.Jacket_EMS_Louisville', 'STR.Jacket_Police_Meade',
         'STR.Jacket_Police_JeffersonPD', 'STR.Jacket_Police_JeffersonSD', 'STR.Jacket_PoliceKSP', 'STR.Jacket_EMS_Meade',
-        'STR.Jacket_EMS_Jefferson', 'STR.Jacket_Federal_Ranger', 'STR.Jacket_State_LawRanger', 'STR.Jacket_State_Ranger'},
+        'STR.Jacket_EMS_Jefferson', 'STR.Jacket_Federal_Ranger', 'STR.Jacket_State_LawRanger', 'STR.Jacket_State_Ranger',
+        'STR.Jacket_Security_Bank', 'STR.Jacket_Dress_Security_Hotel_Havisham', 'STR.Jacket_Suit_Security_Hotel_Fancy',
+		'STR.Jacket_Security_Mall_Ohio', 'STR.Jacket_Security_Mall_Valley', 'STR.Jacket_Security_Mall_LV', 'STR.Jacket_Sweater_Security_Hotel_Havisham',
+		'STR.Jacket_Sweater_Security_Bank'},
         ['Pants'] = 'STR.Trousers_PoliceKSP_Winter'})
     end
 end
