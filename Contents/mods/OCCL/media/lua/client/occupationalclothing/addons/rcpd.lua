@@ -21,7 +21,7 @@ require 'occupationalclothing/main'
 OCCL.RCPD = {}
 
 function OCCL.RCPD.checkEnabled()
-    return (SandboxVars.OccupationalClothing.WantRavenCreekPD and getActivatedMods():contains('STR') and getActivatedMods():contains('RavenCreek'))
+    return (SandboxVars.OccupationalClothing.WantSTR and getActivatedMods():contains('STR') and getActivatedMods():contains('RavenCreek'))
 end
 
 function OCCL.RCPD.addClothes()

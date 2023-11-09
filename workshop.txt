@@ -5,7 +5,6 @@ description=This mod adds additional selectable clothing during character creati
 description=
 description=This mod has sandbox variables to allow you to use occupational outfits from mods. At the moment, the supported mods are:
 description=[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2623855083]Small Town Responders[/url]
-description=[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2599486479]Raven Creek Police Department[/url]
 description=[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2460154811]Brita's Armour Pack[/url]
 description=
 description=Sandbox variables allow you to configure what items are available at character creation - you can restrict armour, hardhats, gloves, firefighter suits, etc.
