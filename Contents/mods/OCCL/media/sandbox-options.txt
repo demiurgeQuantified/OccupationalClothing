@@ -106,6 +106,14 @@ option OccupationalClothing.WantTandilPD
 	translation = OccupationalClothing_WantTandil,
 }
 
+option OccupationalClothing.WantGreenportPD
+{
+	type = boolean,
+	default = true,
+	page = OccupationalClothing,
+	translation = OccupationalClothing_WantGreenport,
+}
+
 option OccupationalClothing.WantBrita
 {
 	type = boolean,

@@ -35,6 +35,8 @@ Sandbox_EN = {
 	Sandbox_OccupationalClothing_WantRavenCreekPD_tooltip = "Raven Creek uniforms for the fire officer, police officer, and nurse occupations. Does nothing if STFR and RavenCreek are not enabled.",
 	Sandbox_OccupationalClothing_WantTandilPD = "STFR Tandil: Content",
 	Sandbox_OccupationalClothing_WantTandilPD_tooltip = "Tandil uniforms for the fire officer, police officer, and nurse occupations. Does nothing if STFR and Tandil are not enabled.",
+	Sandbox_OccupationalClothing_WantGreenportPD = "STFR Greenport: Content",
+	Sandbox_OccupationalClothing_WantGreenportPD_tooltip = "Greenport uniforms for the police officer occupation. Does nothing if STFR and Greenport are not enabled.",
 
 	Sandbox_OccupationalClothing_WantBrita = "Brita's Armour Pack",
 	Sandbox_OccupationalClothing_WantBrita_tooltip = "Brita's Armour Pack items for the veteran. Doesn't do much if you don't have Veteran Army Uniforms enabled.",
