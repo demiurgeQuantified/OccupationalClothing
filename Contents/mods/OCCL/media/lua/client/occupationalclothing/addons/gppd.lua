@@ -21,7 +21,7 @@ require 'occupationalclothing/main'
 OCCL.GPPD = {}
 
 function OCCL.GPPD.checkEnabled()
-    return (SandboxVars.OccupationalClothing.WantGreenportPD and getActivatedMods():contains('STR') and getActivatedMods():contains('Greenport'))
+    return (SandboxVars.OccupationalClothing.WantSTR and getActivatedMods():contains('STR') and getActivatedMods():contains('Greenport'))
 end
 
 function OCCL.GPPD.addClothes()

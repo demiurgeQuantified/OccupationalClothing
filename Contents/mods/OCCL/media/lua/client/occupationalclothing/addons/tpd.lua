@@ -20,7 +20,7 @@ require 'occupationalclothing/main'
 -- Small Town Responders (https://steamcommunity.com/sharedfiles/filedetails/?id=2623855083)
 OCCL.TPD = {}
 
-function OCCL.RCPD.checkEnabled()
+function OCCL.TPD.checkEnabled()
     return (SandboxVars.OccupationalClothing.WantSTR and getActivatedMods():contains('STR') and getActivatedMods():contains('Tandil'))
 end
 
