@@ -18,9 +18,9 @@
 require 'occupationalclothing/outfitter'
 require 'occupationalclothing/addons/tpd'
 
-OCCL.Outfitter.RCPD = {}
+OCCL.Outfitter.TPD = {}
 
-function OCCL.Outfitter.RCPD.generateMapClothingTables()
+function OCCL.Outfitter.TPD.generateMapClothingTables()
     local professionTable = {}
 
     professionTable['fireofficer'] = {
@@ -63,9 +63,9 @@ function OCCL.Outfitter.RCPD.generateMapClothingTables()
     OCCL.Outfitter.addMapClothingTable('Tandil', professionTable)
 end
 
-OCCL.Outfitter.addOutfits(OCCL.Outfitter.RCPD.generateMapClothingTables, OCCL.RCPD.checkEnabled)
+OCCL.Outfitter.addOutfits(OCCL.Outfitter.TPD.generateMapClothingTables, OCCL.TPD.checkEnabled)
 
-function OCCL.Outfitter.RCPD.addBlacklistedItems()
+function OCCL.Outfitter.TPD.addBlacklistedItems()
     if SandboxVars.OccupationalClothing.WantFireman < 3 then
         local bannedJackets = {'STR.Jacket_Fireman_Tandil_Black', 'STR.Jacket_Fireman_Tandil_Khaki'}
         OCCL.Outfitter.addToBlacklist('Jacket', bannedJackets)
@@ -87,9 +87,9 @@ function OCCL.Outfitter.RCPD.addBlacklistedItems()
     end
 end
 
-OCCL.Outfitter.addBlacklistedItems(OCCL.Outfitter.RCPD.addBlacklistedItems, OCCL.RCPD.checkEnabled)
+OCCL.Outfitter.addBlacklistedItems(OCCL.Outfitter.TPD.addBlacklistedItems, OCCL.TPD.checkEnabled)
 
-function OCCL.Outfitter.RCPD.banSeasonalItems(month)
+function OCCL.Outfitter.TPD.banSeasonalItems(month)
     if month == 12 or month < 3 then
         OCCL.Outfitter.addToBlacklist({['Tshirt'] = {'STR.TShirt_Police_Tandil', 'STR.TShirt_EMS_Tandil'}})
     elseif month < 6 then
@@ -104,4 +104,4 @@ function OCCL.Outfitter.RCPD.banSeasonalItems(month)
     end
 end
 
-OCCL.Outfitter.addSeasonalBannedItems(OCCL.Outfitter.RCPD.banSeasonalItems, OCCL.RCPD.checkEnabled)
+OCCL.Outfitter.addSeasonalBannedItems(OCCL.Outfitter.TPD.banSeasonalItems, OCCL.TPD.checkEnabled)

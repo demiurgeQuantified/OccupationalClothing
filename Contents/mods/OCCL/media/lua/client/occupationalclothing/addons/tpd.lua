@@ -18,13 +18,13 @@
 require 'occupationalclothing/main'
 
 -- Small Town Responders (https://steamcommunity.com/sharedfiles/filedetails/?id=2623855083)
-OCCL.RCPD = {}
+OCCL.TPD = {}
 
-function OCCL.RCPD.checkEnabled()
+function OCCL.TPD.checkEnabled()
     return (SandboxVars.OccupationalClothing.WantSTR and getActivatedMods():contains('STR') and getActivatedMods():contains('Tandil'))
 end
 
-function OCCL.RCPD.addClothes()
+function OCCL.TPD.addClothes()
     OCCL.UpdateClothing('fireofficer', {
         Shirt = {'Shirt_Fire_Tandil'},
         Tshirt = {'TShirt_Profession_FiremanBlue_Tandil', 'TShirt_Profession_FiremanRed_Tandil', 'TShirt_Profession_FiremanRed_Tandil02', 'TShirt_Profession_FiremanWhite_Tandil',},
@@ -79,13 +79,13 @@ function OCCL.RCPD.addClothes()
     end
 end
 
-OCCL.addAdditionalClothing(OCCL.RCPD.addClothes, OCCL.RCPD.checkEnabled)
+OCCL.addAdditionalClothing(OCCL.TPD.addClothes, OCCL.TPD.checkEnabled)
 
-function OCCL.RCPD.checkDressEnabled()
-    return (SandboxVars.OccupationalClothing.WantSTRFormalDress and OCCL.RCPD.checkEnabled())
+function OCCL.TPD.checkDressEnabled()
+    return (SandboxVars.OccupationalClothing.WantSTRFormalDress and OCCL.TPD.checkEnabled())
 end
 
-function OCCL.RCPD.addDressOutfits()
+function OCCL.TPD.addDressOutfits()
     OCCL.UpdateClothing('policeofficer', {
         Hat = {'Hat_Police_Tandil_Dress'},
     }, 'STR')
@@ -96,4 +96,4 @@ function OCCL.RCPD.addDressOutfits()
     end
 end
 
-OCCL.addAdditionalClothing(OCCL.RCPD.addDressOutfits, OCCL.RCPD.checkDressEnabled)
+OCCL.addAdditionalClothing(OCCL.TPD.addDressOutfits, OCCL.TPD.checkDressEnabled)
