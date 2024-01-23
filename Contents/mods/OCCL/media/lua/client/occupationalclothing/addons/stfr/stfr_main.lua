@@ -227,3 +227,20 @@ function OCCL.STFR_Main.addRankedOutfits()
 end
 
 OCCL.addAdditionalClothing(OCCL.STFR_Main.addRankedOutfits, OCCL.STFR_Main.checkRanksEnabled)
+
+function OCCL.STFR_Main.checkRankedDressEnabled()
+    return (SandboxVars.OccupationalClothing.WantSTRFormalDress and SandboxVars.OccupationalClothing.WantSTRRanks and OCCL.STFR_Main.checkEnabled())
+end
+
+function OCCL.STFR_Main.addRankedDressOutfits()
+    if SandboxVars.OccupationalClothing.WantJackets then
+        OCCL.UpdateClothing('policeofficer', {
+            Jacket = {'Jacket_Dress_Sheriff_Rosewood_SGT', 'Jacket_Dress_Police_Jefferson_SGT', 'Jacket_Dress_Police_KSP_SGT', 'Jacket_Dress_Police_Louisville_SGT',
+            'Jacket_Dress_Sheriff_Meade_SGT', 'Jacket_Dress_Police_Muldraugh_SGT', 'Jacket_Dress_Police_Riverside_SGT', 'Jacket_Dress_Police_WestPoint_SGT', 'Jacket_Dress_Sheriff_Jefferson_SGT', 
+			'Jacket_Dress_Sheriff_Rosewood_CPT', 'Jacket_Dress_Police_Jefferson_CPT', 'Jacket_Dress_Police_KSP_CPT', 'Jacket_Dress_Police_Louisville_CPT',
+            'Jacket_Dress_Sheriff_Meade_CPT', 'Jacket_Dress_Police_Muldraugh_CPT', 'Jacket_Dress_Police_Riverside_CPT', 'Jacket_Dress_Police_WestPoint_CPT', 'Jacket_Dress_Sheriff_Jefferson_CPT'},
+        }, 'STFR')
+    end
+end
+
+OCCL.addAdditionalClothing(OCCL.STFR_Main.addRankedDressOutfits, OCCL.STFR_Main.checkRankedDressEnabled)

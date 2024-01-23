@@ -112,3 +112,17 @@ function OCCL.STFR_Tikitown.addRankedOutfits()
 end
 
 OCCL.addAdditionalClothing(OCCL.STFR_Tikitown.addRankedOutfits, OCCL.STFR_Tikitown.checkRanksEnabled)
+
+function OCCL.STFR_Tikitown.checkRankedDressEnabled()
+    return (SandboxVars.OccupationalClothing.WantSTRFormalDress and SandboxVars.OccupationalClothing.WantSTRRanks and OCCL.STFR_Tikitown.checkEnabled())
+end
+
+function OCCL.STFR_Tikitown.addRankedDressOutfits()
+    if SandboxVars.OccupationalClothing.WantJackets then
+        OCCL.UpdateClothing('policeofficer', {
+            Jacket = {'Jacket_Dress_Police_Tikitown_SGT', 'Jacket_Dress_Police_Tikitown_CPT'},
+        }, 'STFR')
+    end
+end
+
+OCCL.addAdditionalClothing(OCCL.STFR_Tikitown.addRankedDressOutfits, OCCL.STFR_Tikitown.checkRankedDressEnabled)

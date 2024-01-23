@@ -80,3 +80,17 @@ function OCCL.STFR_Greenport.addRankedOutfits()
 end
 
 OCCL.addAdditionalClothing(OCCL.STFR_Greenport.addRankedOutfits, OCCL.STFR_Greenport.checkRanksEnabled)
+
+function OCCL.STFR_Greenport.checkRankedDressEnabled()
+    return (SandboxVars.OccupationalClothing.WantSTRFormalDress and SandboxVars.OccupationalClothing.WantSTRRanks and OCCL.STFR_Greenport.checkEnabled())
+end
+
+function OCCL.STFR_Greenport.addRankedDressOutfits()
+    if SandboxVars.OccupationalClothing.WantJackets then
+        OCCL.UpdateClothing('policeofficer', {
+            Jacket = {'Jacket_Dress_Police_Greenport_SGT', 'Jacket_Dress_Police_Greenport_CPT'},
+        }, 'STFR')
+    end
+end
+
+OCCL.addAdditionalClothing(OCCL.STFR_Greenport.addRankedDressOutfits, OCCL.STFR_Greenport.checkRankedDressEnabled)

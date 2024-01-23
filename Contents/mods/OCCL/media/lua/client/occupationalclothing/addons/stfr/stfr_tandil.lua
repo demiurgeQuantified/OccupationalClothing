@@ -116,3 +116,20 @@ function OCCL.STFR_Tandil.addRankedOutfits()
 end
 
 OCCL.addAdditionalClothing(OCCL.STFR_Tandil.addRankedOutfits, OCCL.STFR_Tandil.checkRanksEnabled)
+
+function OCCL.STFR_Tandil.checkRankedDressEnabled()
+    return (SandboxVars.OccupationalClothing.WantSTRFormalDress and SandboxVars.OccupationalClothing.WantSTRRanks and OCCL.STFR_Tandil.checkEnabled())
+end
+
+function OCCL.STFR_Tandil.addRankedDressOutfits()
+    OCCL.UpdateClothing('policeofficer', {
+        Hat = {'Hat_Police_Tandil_SGT_Dress', 'Hat_Police_Tandil_CPT_Dress'},
+    }, 'STFR')
+    if SandboxVars.OccupationalClothing.WantJackets then
+        OCCL.UpdateClothing('policeofficer', {
+            Jacket = {'Jacket_Dress_Police_Tandil_SGT', 'Jacket_Dress_Police_Tandil_CPT'},
+        }, 'STFR')
+    end
+end
+
+OCCL.addAdditionalClothing(OCCL.STFR_Tandil.addRankedDressOutfits, OCCL.STFR_Tandil.checkRankedDressEnabled)

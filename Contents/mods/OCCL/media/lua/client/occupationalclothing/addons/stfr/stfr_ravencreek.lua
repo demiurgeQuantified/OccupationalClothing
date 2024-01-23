@@ -125,3 +125,17 @@ function OCCL.STFR_RavenCreek.addRankedOutfits()
 end
 
 OCCL.addAdditionalClothing(OCCL.STFR_RavenCreek.addRankedOutfits, OCCL.STFR_RavenCreek.checkRanksEnabled)
+
+function OCCL.STFR_RavenCreek.checkRankedDressEnabled()
+    return (SandboxVars.OccupationalClothing.WantSTRFormalDress and SandboxVars.OccupationalClothing.WantSTRRanks and OCCL.STFR_RavenCreek.checkEnabled())
+end
+
+function OCCL.STFR_RavenCreek.addRankedDressOutfits()
+    if SandboxVars.OccupationalClothing.WantJackets then
+        OCCL.UpdateClothing('policeofficer', {
+            Jacket = {'Jacket_Dress_Police_RavenCreek_SGT', 'Jacket_Dress_Police_RavenCreek_CPT'},
+        }, 'STFR')
+    end
+end
+
+OCCL.addAdditionalClothing(OCCL.STFR_RavenCreek.addRankedDressOutfits, OCCL.STFR_RavenCreek.checkRankedDressEnabled)
