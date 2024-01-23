@@ -51,16 +51,16 @@ OCCL.Outfitter.addBlacklistedItems(OCCL.Outfitter.STFR_Greenport.addBlacklistedI
 
 function OCCL.Outfitter.STFR_Greenport.banSeasonalItems(month)
     if month == 12 or month < 3 then
-        OCCL.Outfitter.addToBlacklist({['Tshirt'] = {'STFR.TShirt_Police_Greenport_Officer'}})
+        OCCL.Outfitter.addToBlacklist({['Tshirt'] = {'STFR.TShirt_Police_Greenport_Officer', 'TShirt_Police_Greenport_SGT', 'TShirt_Police_Greenport_CPT'}})
     elseif month < 6 then
-        OCCL.Outfitter.addTableToBlacklist({['Tshirt'] = {'STFR.TShirt_Police_Greenport_Officer'},
-                                ['Jacket'] = {'STFR.Jacket_Police_Greenport_Officer'}})
+        OCCL.Outfitter.addTableToBlacklist({['Tshirt'] = {'STFR.TShirt_Police_Greenport_Officer', 'TShirt_Police_Greenport_SGT', 'TShirt_Police_Greenport_CPT'},
+                                ['Jacket'] = {'STFR.Jacket_Police_Greenport_Officer', 'Jacket_Police_Greenport_SGT', 'Jacket_Police_Greenport_CPT'}})
     elseif month < 9 then
-        OCCL.Outfitter.addTableToBlacklist({['Shirt'] = {'STFR.Shirt_Police_Greenport_Officer'},
-                                ['Jacket'] = {'STFR.Jacket_Police_Greenport_Officer'}})
+        OCCL.Outfitter.addTableToBlacklist({['Shirt'] = {'STFR.Shirt_Police_Greenport_Officer', 'Shirt_Police_Greenport_SGT', 'Shirt_Police_Greenport_CPT'},
+                                ['Jacket'] = {'STFR.Jacket_Police_Greenport_Officer', 'Jacket_Police_Greenport_SGT', 'Jacket_Police_Greenport_CPT'}})
     else
-        OCCL.Outfitter.addTableToBlacklist({['Tshirt'] = {'STFR.TShirt_Police_Greenport_Officer'},
-                                ['Jacket'] = {'STFR.Jacket_Police_Greenport_Officer'}})
+        OCCL.Outfitter.addTableToBlacklist({['Tshirt'] = {'STFR.TShirt_Police_Greenport_Officer','TShirt_Police_Greenport_SGT', 'TShirt_Police_Greenport_CPT'},
+                                ['Jacket'] = {'STFR.Jacket_Police_Greenport_Officer', 'Jacket_Police_Greenport_SGT', 'Jacket_Police_Greenport_CPT'}})
     end
 end
 

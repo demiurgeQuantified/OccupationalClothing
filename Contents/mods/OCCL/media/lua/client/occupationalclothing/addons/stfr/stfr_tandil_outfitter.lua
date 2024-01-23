@@ -91,16 +91,16 @@ OCCL.Outfitter.addBlacklistedItems(OCCL.Outfitter.STFR_Tandil.addBlacklistedItem
 
 function OCCL.Outfitter.STFR_Tandil.banSeasonalItems(month)
     if month == 12 or month < 3 then
-        OCCL.Outfitter.addToBlacklist({['Tshirt'] = {'STFR.TShirt_Police_Tandil_Officer', 'STFR.TShirt_EMS_Tandil'}})
+        OCCL.Outfitter.addToBlacklist({['Tshirt'] = {'STFR.TShirt_Police_Tandil_Officer', 'TShirt_Police_Tandil_SGT', 'TShirt_Police_Tandil_CPT', 'STFR.TShirt_EMS_Tandil'}})
     elseif month < 6 then
-        OCCL.Outfitter.addTableToBlacklist({['Tshirt'] = {'STFR.TShirt_Police_Tandil_Officer', 'STFR.TShirt_EMS_Tandil'},
-                                ['Jacket'] = {'STFR.Jacket_Police_Tandil_Officer', 'STFR.Jacket_EMS_Tandil'}})
+        OCCL.Outfitter.addTableToBlacklist({['Tshirt'] = {'STFR.TShirt_Police_Tandil_Officer', 'TShirt_Police_Tandil_SGT', 'TShirt_Police_Tandil_CPT', 'STFR.TShirt_EMS_Tandil'},
+                                ['Jacket'] = {'STFR.Jacket_Police_Tandil_Officer', 'Jacket_Police_Tandil_SGT', 'Jacket_Police_Tandil_CPT', 'STFR.Jacket_EMS_Tandil'}})
     elseif month < 9 then
-        OCCL.Outfitter.addTableToBlacklist({['Shirt'] = {'STFR.Shirt_Police_Tandil_Officer', 'STFR.Shirt_EMS_Tandil'},
-                                ['Jacket'] = {'STFR.Jacket_Police_Tandil_Officer', 'STFR.Jacket_EMS_Tandil'}})
+        OCCL.Outfitter.addTableToBlacklist({['Shirt'] = {'STFR.Shirt_Police_Tandil_Officer', 'Shirt_Police_Tandil_SGT', 'Shirt_Police_Tandil_CPT', 'STFR.Shirt_EMS_Tandil'},
+                                ['Jacket'] = {'STFR.Jacket_Police_Tandil_Officer', 'Jacket_Police_Tandil_SGT', 'Jacket_Police_Tandil_CPT', 'STFR.Jacket_EMS_Tandil'}})
     else
-        OCCL.Outfitter.addTableToBlacklist({['Tshirt'] = {'STFR.TShirt_Police_Tandil_Officer', 'STFR.TShirt_EMS_Tandil'},
-                                ['Jacket'] = {'STFR.Jacket_Police_Tandil_Officer', 'STFR.Jacket_EMS_Tandil'}})
+        OCCL.Outfitter.addTableToBlacklist({['Tshirt'] = {'STFR.TShirt_Police_Tandil_Officer', 'TShirt_Police_Tandil_SGT', 'TShirt_Police_Tandil_CPT', 'STFR.TShirt_EMS_Tandil'},
+                                ['Jacket'] = {'STFR.Jacket_Police_Tandil_Officer', 'Jacket_Police_Tandil_SGT', 'Jacket_Police_Tandil_CPT', 'STFR.Jacket_EMS_Tandil'}})
     end
 end
 

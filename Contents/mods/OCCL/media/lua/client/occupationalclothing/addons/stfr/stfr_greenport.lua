@@ -62,3 +62,21 @@ function OCCL.STFR_Greenport.addDressOutfits()
 end
 
 OCCL.addAdditionalClothing(OCCL.STFR_Greenport.addDressOutfits, OCCL.STFR_Greenport.checkDressEnabled)
+
+function OCCL.STFR_Greenport.checkRanksEnabled()
+    return (SandboxVars.OccupationalClothing.WantSTRRanks and OCCL.STFR_Greenport.checkEnabled())
+end
+
+function OCCL.STFR_Greenport.addRankedOutfits()
+    OCCL.UpdateClothing('policeofficer', {
+        Shirt = {'Shirt_Police_Greenport_SGT', 'Shirt_Police_Greenport_CPT'},
+        Tshirt = {'TShirt_Police_Greenport_SGT', 'TShirt_Police_Greenport_CPT'},
+    }, 'STFR')
+    if SandboxVars.OccupationalClothing.WantJackets then
+        OCCL.UpdateClothing('policeofficer', {
+            Jacket = {'Jacket_Police_Greenport_SGT', 'Jacket_Police_Greenport_CPT'},
+        }, 'STFR')
+    end
+end
+
+OCCL.addAdditionalClothing(OCCL.STFR_Greenport.addRankedOutfits, OCCL.STFR_Greenport.checkRanksEnabled)

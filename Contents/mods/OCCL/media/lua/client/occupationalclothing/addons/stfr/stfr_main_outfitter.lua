@@ -214,7 +214,11 @@ function OCCL.Outfitter.STFR_Main.addBlacklistedItems()
         'STFR.Jacket_EMS_Jefferson', 'STFR.Jacket_Ranger_Federal', 'STFR.Jacket_Ranger_State_Park', 'STFR.Jacket_Ranger_Conservation',
         'STFR.Jacket_Security_Bank', 'STFR.Jacket_Dress_Security_Hotel_Havisham', 'STFR.Jacket_Suit_Security_Hotel_Fancy',
 		'STFR.Jacket_Security_Mall_Grand_Ohio', 'STFR.Jacket_Security_Mall_Valley_Station', 'STFR.Jacket_Security_Mall_Louisville', 'STFR.Jacket_Sweater_Security_Hotel_Havisham',
-		'STFR.Jacket_Sweater_Security_Bank'}
+		'STFR.Jacket_Sweater_Security_Bank', 'Jacket_Police_Muldraugh_SGT', 'Jacket_Sheriff_Meade_SGT', 'Jacket_Police_WestPoint_SGT', 'Jacket_Police_Riverside_SGT',
+        'Jacket_Sheriff_Rosewood_SGT', 'Jacket_Police_Louisville_SGT', 'Jacket_Police_Jefferson_SGT', 'Jacket_Sheriff_Jefferson_SGT',
+        'Jacket_Police_KSP_SGT', 'Jacket_Police_Muldraugh_CPT', 'Jacket_Sheriff_Meade_CPT', 'Jacket_Police_WestPoint_CPT', 'Jacket_Police_Riverside_CPT',
+        'Jacket_Sheriff_Rosewood_CPT', 'Jacket_Police_Louisville_CPT', 'Jacket_Police_Jefferson_CPT', 'Jacket_Sheriff_Jefferson_CPT',
+        'Jacket_Police_KSP_CPT'}
         OCCL.Outfitter.addToBlacklist('Jacket', bannedJackets)
     end
 
@@ -232,7 +236,9 @@ function OCCL.Outfitter.STFR_Main.banSeasonalItems(month)
         'STFR.TShirt_Police_Jefferson_Officer', 'STFR.TShirt_Sheriff_Jefferson_Officer', 'STFR.TShirt_Police_KSP_Officer', 'STFR.TShirt_EMS_Meade',
         'STFR.TShirt_EMS_Jefferson', 'STFR.TShirt_Ranger_Federal', 'STFR.TShirt_Ranger_State_Park', 'STFR.TShirt_Ranger_Conservation',
 		'STFR.TShirt_Security_Bank', 'STFR.TShirt_Security_Hotel_Havisham', 'STFR.TShirt_Polo_Security_Hotel_Fancy', 'STFR.TShirt_Security_Mall_Grand_Ohio',
-		'STFR.TShirt_Security_Mall_Valley_Station', 'STFR.TShirt_Security_Mall_Louisville'},
+		'STFR.TShirt_Security_Mall_Valley_Station', 'STFR.TShirt_Security_Mall_Louisville', 'TShirt_Police_Muldraugh_SGT', 'TShirt_Sheriff_Meade_SGT', 'TShirt_Police_WestPoint_SGT', 'TShirt_Police_Riverside_SGT', 'TShirt_Sheriff_Rosewood_SGT',
+        'TShirt_Police_Louisville_SGT', 'TShirt_Police_Jefferson_SGT', 'TShirt_Sheriff_Jefferson_SGT', 'TShirt_Police_KSP_SGT', 'TShirt_Police_Muldraugh_CPT', 'TShirt_Sheriff_Meade_CPT', 'TShirt_Police_WestPoint_CPT', 'TShirt_Police_Riverside_CPT', 'TShirt_Sheriff_Rosewood_CPT',
+        'TShirt_Police_Louisville_CPT', 'TShirt_Police_Jefferson_CPT', 'TShirt_Sheriff_Jefferson_CPT', 'TShirt_Police_KSP_CPT'},
         ['Pants'] = 'STFR.Trousers_PoliceKSP_Summer'})
     elseif month < 6 then
         OCCL.Outfitter.addTableToBlacklist({['Tshirt'] = {'STFR.TShirt_Police_Muldraugh_Officer', 'STFR.TShirt_Sheriff_Rosewood_Officer', 'STFR.TShirt_Police_Riverside_Officer',
@@ -240,28 +246,40 @@ function OCCL.Outfitter.STFR_Main.banSeasonalItems(month)
         'STFR.TShirt_Police_Jefferson_Officer', 'STFR.TShirt_Sheriff_Jefferson_Officer', 'STFR.TShirt_Police_KSP_Officer', 'STFR.TShirt_EMS_Meade',
         'STFR.TShirt_EMS_Jefferson', 'STFR.TShirt_Ranger_Federal', 'STFR.TShirt_Ranger_State_Park', 'STFR.TShirt_Ranger_Conservation',
 		'STFR.TShirt_Security_Bank', 'STFR.TShirt_Security_Hotel_Havisham', 'STFR.TShirt_Polo_Security_Hotel_Fancy', 'STFR.TShirt_Security_Mall_Grand_Ohio',
-		'STFR.TShirt_Security_Mall_Valley_Station', 'STFR.TShirt_Security_Mall_Louisville'},
+		'STFR.TShirt_Security_Mall_Valley_Station', 'STFR.TShirt_Security_Mall_Louisville', 'TShirt_Police_Muldraugh_SGT', 'TShirt_Sheriff_Meade_SGT', 'TShirt_Police_WestPoint_SGT', 'TShirt_Police_Riverside_SGT', 'TShirt_Sheriff_Rosewood_SGT',
+        'TShirt_Police_Louisville_SGT', 'TShirt_Police_Jefferson_SGT', 'TShirt_Sheriff_Jefferson_SGT', 'TShirt_Police_KSP_SGT', 'TShirt_Police_Muldraugh_CPT', 'TShirt_Sheriff_Meade_CPT', 'TShirt_Police_WestPoint_CPT', 'TShirt_Police_Riverside_CPT', 'TShirt_Sheriff_Rosewood_CPT',
+        'TShirt_Police_Louisville_CPT', 'TShirt_Police_Jefferson_CPT', 'TShirt_Sheriff_Jefferson_CPT', 'TShirt_Police_KSP_CPT'},
         ['Jacket'] = {'STFR.Jacket_Police_Muldraugh_Officer', 'STFR.Jacket_Sheriff_Rosewood_Officer', 'STFR.Jacket_Police_Riverside_Officer',
         'STFR.Jacket_Police_WestPoint_Officer', 'STFR.Jacket_Police_Louisville_Officer', 'STFR.Jacket_EMS_Louisville', 'STFR.Jacket_Sheriff_Meade_Officer',
         'STFR.Jacket_Police_Jefferson_Officer', 'STFR.Jacket_Sheriff_Jefferson_Officer', 'STFR.Jacket_Police_KSP_Officer', 'STFR.Jacket_EMS_Meade',
         'STFR.Jacket_EMS_Jefferson', 'STFR.Jacket_Ranger_Federal', 'STFR.Jacket_Ranger_State_Park', 'STFR.Jacket_Ranger_Conservation',
         'STFR.Jacket_Security_Bank', 'STFR.Jacket_Dress_Security_Hotel_Havisham', 'STFR.Jacket_Suit_Security_Hotel_Fancy',
 		'STFR.Jacket_Security_Mall_Grand_Ohio', 'STFR.Jacket_Security_Mall_Valley_Station', 'STFR.Jacket_Security_Mall_Louisville', 'STFR.Jacket_Sweater_Security_Hotel_Havisham',
-		'STFR.Jacket_Sweater_Security_Bank'},
+		'STFR.Jacket_Sweater_Security_Bank', 'Jacket_Police_Muldraugh_SGT', 'Jacket_Sheriff_Meade_SGT', 'Jacket_Police_WestPoint_SGT', 'Jacket_Police_Riverside_SGT',
+        'Jacket_Sheriff_Rosewood_SGT', 'Jacket_Police_Louisville_SGT', 'Jacket_Police_Jefferson_SGT', 'Jacket_Sheriff_Jefferson_SGT',
+        'Jacket_Police_KSP_SGT', 'Jacket_Police_Muldraugh_CPT', 'Jacket_Sheriff_Meade_CPT', 'Jacket_Police_WestPoint_CPT', 'Jacket_Police_Riverside_CPT',
+        'Jacket_Sheriff_Rosewood_CPT', 'Jacket_Police_Louisville_CPT', 'Jacket_Police_Jefferson_CPT', 'Jacket_Sheriff_Jefferson_CPT',
+        'Jacket_Police_KSP_CPT'},
         ['Pants'] = 'STFR.Trousers_Police_KSP_Winter'})
     elseif month < 9 then
         OCCL.Outfitter.addTableToBlacklist({['Shirt'] = {'STFR.Shirt_Police_Muldraugh_Officer', 'STFR.Shirt_Sheriff_Rosewood_Officer', 'STFR.Shirt_Police_Riverside_Officer',
         'STFR.Shirt_Police_WestPoint_Officer', 'STFR.Shirt_Police_Louisville_Officer', 'STFR.Shirt_EMS_Louisville', 'STFR.Shirt_Sheriff_Meade_Officer',
         'STFR.Shirt_Police_Jefferson_Officer', 'STFR.Shirt_Sheriff_Jefferson_Officer', 'STFR.Shirt_Police_KSP_Officer', 'STFR.Shirt_EMS_Meade',
         'STFR.Shirt_EMS_Jefferson', 'STFR.Shirt_Ranger_Federal', 'STFR.Shirt_Ranger_State_Park', 'STFR.Shirt_Ranger_Conservation',
-		'STFR.Shirt_Security_Bank', 'STFR.Shirt_Security_Hotel_Havisham', 'STFR.Shirt_Security_Hotel_Fancy', 'STFR.Shirt_Security_Mall_Grand_Ohio', 'STFR.Shirt_Security_Mall_Valley_Station', 'STFR.Shirt_Security_Mall_Louisville'},
+		'STFR.Shirt_Security_Bank', 'STFR.Shirt_Security_Hotel_Havisham', 'STFR.Shirt_Security_Hotel_Fancy', 'STFR.Shirt_Security_Mall_Grand_Ohio', 'STFR.Shirt_Security_Mall_Valley_Station', 'STFR.Shirt_Security_Mall_Louisville', 'Shirt_Police_Muldraugh_SGT', 'Shirt_Sheriff_Meade_SGT', 'Shirt_Police_WestPoint_SGT', 'Shirt_Police_Riverside_SGT', 'Shirt_Sheriff_Rosewood_SGT',
+        'Shirt_Police_Louisville_SGT', 'Shirt_Police_Jefferson_SGT', 'Shirt_Sheriff_Jefferson_SGT', 'Shirt_Police_KSP_SGT', 'Shirt_Police_Muldraugh_CPT', 'Shirt_Sheriff_Meade_CPT', 'Shirt_Police_WestPoint_CPT', 'Shirt_Police_Riverside_CPT', 'Shirt_Sheriff_Rosewood_CPT',
+        'Shirt_Police_Louisville_CPT', 'Shirt_Police_Jefferson_CPT', 'Shirt_Sheriff_Jefferson_CPT', 'Shirt_Police_KSP_CPT'},
         ['Jacket'] = {'STFR.Jacket_Police_Muldraugh_Officer', 'STFR.Jacket_Sheriff_Rosewood_Officer', 'STFR.Jacket_Police_Riverside_Officer',
         'STFR.Jacket_Police_WestPoint_Officer', 'STFR.Jacket_Police_Louisville_Officer', 'STFR.Jacket_EMS_Louisville', 'STFR.Jacket_Sheriff_Meade_Officer',
         'STFR.Jacket_Police_Jefferson_Officer', 'STFR.Jacket_Sheriff_Jefferson_Officer', 'STFR.Jacket_Police_KSP_Officer', 'STFR.Jacket_EMS_Meade',
         'STFR.Jacket_EMS_Jefferson', 'STFR.Jacket_Ranger_Federal', 'STFR.Jacket_Ranger_State_Park', 'STFR.Jacket_Ranger_Conservation',
         'STFR.Jacket_Security_Bank', 'STFR.Jacket_Dress_Security_Hotel_Havisham', 'STFR.Jacket_Suit_Security_Hotel_Fancy',
 		'STFR.Jacket_Security_Mall_Grand_Ohio', 'STFR.Jacket_Security_Mall_Valley_Station', 'STFR.Jacket_Security_Mall_Louisville', 'STFR.Jacket_Sweater_Security_Hotel_Havisham',
-		'STFR.Jacket_Sweater_Security_Bank'},
+		'STFR.Jacket_Sweater_Security_Bank', 'Jacket_Police_Muldraugh_SGT', 'Jacket_Sheriff_Meade_SGT', 'Jacket_Police_WestPoint_SGT', 'Jacket_Police_Riverside_SGT',
+        'Jacket_Sheriff_Rosewood_SGT', 'Jacket_Police_Louisville_SGT', 'Jacket_Police_Jefferson_SGT', 'Jacket_Sheriff_Jefferson_SGT',
+        'Jacket_Police_KSP_SGT', 'Jacket_Police_Muldraugh_CPT', 'Jacket_Sheriff_Meade_CPT', 'Jacket_Police_WestPoint_CPT', 'Jacket_Police_Riverside_CPT',
+        'Jacket_Sheriff_Rosewood_CPT', 'Jacket_Police_Louisville_CPT', 'Jacket_Police_Jefferson_CPT', 'Jacket_Sheriff_Jefferson_CPT',
+        'Jacket_Police_KSP_CPT'},
         ['Pants'] = 'STFR.Trousers_Police_KSP_Winter'})
     else
         OCCL.Outfitter.addTableToBlacklist({['Tshirt'] = {'STFR.TShirt_Police_Muldraugh_Officer', 'STFR.TShirt_Sheriff_Rosewood_Officer', 'STFR.TShirt_Police_Riverside_Officer',
@@ -269,14 +287,20 @@ function OCCL.Outfitter.STFR_Main.banSeasonalItems(month)
         'STFR.TShirt_Police_Jefferson_Officer', 'STFR.TShirt_Sheriff_Jefferson_Officer', 'STFR.TShirt_Police_KSP_Officer', 'STFR.TShirt_EMS_Meade',
         'STFR.TShirt_EMS_Jefferson', 'STFR.TShirt_Ranger_Federal', 'STFR.TShirt_Ranger_State_Park', 'STFR.TShirt_Ranger_Conservation',
 		'STFR.TShirt_Security_Bank', 'STFR.TShirt_Security_Hotel_Havisham', 'STFR.TShirt_Polo_Security_Hotel_Fancy', 'STFR.TShirt_Security_Mall_Grand_Ohio',
-		'STFR.TShirt_Security_Mall_Valley_Station', 'STFR.TShirt_Security_Mall_Louisville'},
+		'STFR.TShirt_Security_Mall_Valley_Station', 'STFR.TShirt_Security_Mall_Louisville', 'TShirt_Police_Muldraugh_SGT', 'TShirt_Sheriff_Meade_SGT', 'TShirt_Police_WestPoint_SGT', 'TShirt_Police_Riverside_SGT', 'TShirt_Sheriff_Rosewood_SGT',
+        'TShirt_Police_Louisville_SGT', 'TShirt_Police_Jefferson_SGT', 'TShirt_Sheriff_Jefferson_SGT', 'TShirt_Police_KSP_SGT', 'TShirt_Police_Muldraugh_CPT', 'TShirt_Sheriff_Meade_CPT', 'TShirt_Police_WestPoint_CPT', 'TShirt_Police_Riverside_CPT', 'TShirt_Sheriff_Rosewood_CPT',
+        'TShirt_Police_Louisville_CPT', 'TShirt_Police_Jefferson_CPT', 'TShirt_Sheriff_Jefferson_CPT', 'TShirt_Police_KSP_CPT'},
         ['Jacket'] = {'STFR.Jacket_Police_Muldraugh_Officer', 'STFR.Jacket_Sheriff_Rosewood_Officer', 'STFR.Jacket_Police_Riverside_Officer',
         'STFR.Jacket_Police_WestPoint_Officer', 'STFR.Jacket_Police_Louisville_Officer', 'STFR.Jacket_EMS_Louisville', 'STFR.Jacket_Sheriff_Meade_Officer',
         'STFR.Jacket_Police_Jefferson_Officer', 'STFR.Jacket_Sheriff_Jefferson_Officer', 'STFR.Jacket_Police_KSP', 'STFR.Jacket_EMS_Meade',
         'STFR.Jacket_EMS_Jefferson', 'STFR.Jacket_Ranger_Federal', 'STFR.Jacket_Ranger_State_Park', 'STFR.Jacket_Ranger_Conservation',
         'STFR.Jacket_Security_Bank', 'STFR.Jacket_Dress_Security_Hotel_Havisham', 'STFR.Jacket_Suit_Security_Hotel_Fancy',
 		'STFR.Jacket_Security_Mall_Grand_Ohio', 'STFR.Jacket_Security_Mall_Valley_Station', 'STFR.Jacket_Security_Mall_Louisville', 'STFR.Jacket_Sweater_Security_Hotel_Havisham',
-		'STFR.Jacket_Sweater_Security_Bank'},
+		'STFR.Jacket_Sweater_Security_Bank', 'Jacket_Police_Muldraugh_SGT', 'Jacket_Sheriff_Meade_SGT', 'Jacket_Police_WestPoint_SGT', 'Jacket_Police_Riverside_SGT',
+        'Jacket_Sheriff_Rosewood_SGT', 'Jacket_Police_Louisville_SGT', 'Jacket_Police_Jefferson_SGT', 'Jacket_Sheriff_Jefferson_SGT',
+        'Jacket_Police_KSP_SGT', 'Jacket_Police_Muldraugh_CPT', 'Jacket_Sheriff_Meade_CPT', 'Jacket_Police_WestPoint_CPT', 'Jacket_Police_Riverside_CPT',
+        'Jacket_Sheriff_Rosewood_CPT', 'Jacket_Police_Louisville_CPT', 'Jacket_Police_Jefferson_CPT', 'Jacket_Sheriff_Jefferson_CPT',
+        'Jacket_Police_KSP_CPT'},
         ['Pants'] = 'STFR.Trousers_Police_KSP_Winter'})
     end
 end

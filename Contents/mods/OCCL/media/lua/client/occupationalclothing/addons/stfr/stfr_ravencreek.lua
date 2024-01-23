@@ -91,7 +91,7 @@ function OCCL.STFR_RavenCreek.addDressOutfits()
         Hat = {'Hat_Fire_RavenCreek', 'Hat_Fire_RavenCreek_Supervisor_Black', 'Hat_Fire_RavenCreek_Supervisor_White'},
     }, 'STFR')
     OCCL.UpdateClothing('nurse', {
-        Hat = {'Hat_EMS_RavenCreek', 'Hat_EMS_RavenCreek_Supervisor', 'Hat_EMS_RavenCreek_Supervisor_White'},
+        Hat = {'Hat_EMS_RavenCreek', 'Hat_EMS_RavenCreek_Supervisor_Blue', 'Hat_EMS_RavenCreek_Supervisor_White'},
     }, 'STFR')
     if SandboxVars.OccupationalClothing.WantJackets then
         OCCL.UpdateClothing('fireofficer', {
@@ -107,3 +107,21 @@ function OCCL.STFR_RavenCreek.addDressOutfits()
 end
 
 OCCL.addAdditionalClothing(OCCL.STFR_RavenCreek.addDressOutfits, OCCL.STFR_RavenCreek.checkDressEnabled)
+
+function OCCL.STFR_RavenCreek.checkRanksEnabled()
+    return (SandboxVars.OccupationalClothing.WantSTRRanks and OCCL.STFR_RavenCreek.checkEnabled())
+end
+
+function OCCL.STFR_RavenCreek.addRankedOutfits()
+    OCCL.UpdateClothing('policeofficer', {
+        Shirt = {'Shirt_Police_RavenCreek_SGT', 'Shirt_Police_RavenCreek_CPT'},
+        Tshirt = {'TShirt_Police_RavenCreek_SGT', 'TShirt_Police_RavenCreek_CPT'},
+    }, 'STFR')
+    if SandboxVars.OccupationalClothing.WantJackets then
+        OCCL.UpdateClothing('policeofficer', {
+            Jacket = {'Jacket_Police_RavenCreek_SGT', 'Jacket_Police_RavenCreek_CPT'},
+        }, 'STFR')
+    end
+end
+
+OCCL.addAdditionalClothing(OCCL.STFR_RavenCreek.addRankedOutfits, OCCL.STFR_RavenCreek.checkRanksEnabled)

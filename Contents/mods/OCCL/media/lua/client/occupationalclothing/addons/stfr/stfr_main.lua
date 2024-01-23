@@ -198,3 +198,32 @@ function OCCL.STFR_Main.addDressOutfits()
 end
 
 OCCL.addAdditionalClothing(OCCL.STFR_Main.addDressOutfits, OCCL.STFR_Main.checkDressEnabled)
+
+function OCCL.STFR_Main.checkRanksEnabled()
+    return (SandboxVars.OccupationalClothing.WantSTRRanks and OCCL.STFR_Main.checkEnabled())
+end
+
+function OCCL.STFR_Main.addRankedOutfits()
+    OCCL.UpdateClothing('policeofficer', {
+        Hat = {'Hat_Police_Muldraugh_SGT', 'Hat_Police_WestPoint_SGT', 'Hat_Police_Riverside_SGT', 'Hat_Sheriff_Rosewood_SGT', 
+                'Hat_Police_Louisville_SGT', 'Hat_Police_Jefferson_SGT', 'Hat_Police_Muldraugh_CPT', 'Hat_Police_WestPoint_CPT', 'Hat_Police_Riverside_CPT', 'Hat_Sheriff_Rosewood_CPT', 
+                'Hat_Police_Louisville_CPT'},
+        Shirt = {'Shirt_Police_Muldraugh_SGT', 'Shirt_Sheriff_Meade_SGT', 'Shirt_Police_WestPoint_SGT', 'Shirt_Police_Riverside_SGT', 'Shirt_Sheriff_Rosewood_SGT',
+                'Shirt_Police_Louisville_SGT', 'Shirt_Police_Jefferson_SGT', 'Shirt_Sheriff_Jefferson_SGT', 'Shirt_Police_KSP_SGT', 'Shirt_Police_Muldraugh_CPT', 'Shirt_Sheriff_Meade_CPT', 'Shirt_Police_WestPoint_CPT', 'Shirt_Police_Riverside_CPT', 'Shirt_Sheriff_Rosewood_CPT',
+                'Shirt_Police_Louisville_CPT', 'Shirt_Police_Jefferson_CPT', 'Shirt_Sheriff_Jefferson_CPT', 'Shirt_Police_KSP_CPT'},
+        Tshirt = {'TShirt_Police_Muldraugh_SGT', 'TShirt_Sheriff_Meade_SGT', 'TShirt_Police_WestPoint_SGT', 'TShirt_Police_Riverside_SGT', 'TShirt_Sheriff_Rosewood_SGT',
+                'TShirt_Police_Louisville_SGT', 'TShirt_Police_Jefferson_SGT', 'TShirt_Sheriff_Jefferson_SGT', 'TShirt_Police_KSP_SGT', 'TShirt_Police_Muldraugh_CPT', 'TShirt_Sheriff_Meade_CPT', 'TShirt_Police_WestPoint_CPT', 'TShirt_Police_Riverside_CPT', 'TShirt_Sheriff_Rosewood_CPT',
+                'TShirt_Police_Louisville_CPT', 'TShirt_Police_Jefferson_CPT', 'TShirt_Sheriff_Jefferson_CPT', 'TShirt_Police_KSP_CPT'},
+    }, 'STFR')
+    if SandboxVars.OccupationalClothing.WantJackets then
+        OCCL.UpdateClothing('policeofficer', {
+            Jacket = {'Jacket_Police_Muldraugh_SGT', 'Jacket_Sheriff_Meade_SGT', 'Jacket_Police_WestPoint_SGT', 'Jacket_Police_Riverside_SGT',
+            'Jacket_Sheriff_Rosewood_SGT', 'Jacket_Police_Louisville_SGT', 'Jacket_Police_Jefferson_SGT', 'Jacket_Sheriff_Jefferson_SGT',
+            'Jacket_Police_KSP_SGT', 'Jacket_Police_Muldraugh_CPT', 'Jacket_Sheriff_Meade_CPT', 'Jacket_Police_WestPoint_CPT', 'Jacket_Police_Riverside_CPT',
+            'Jacket_Sheriff_Rosewood_CPT', 'Jacket_Police_Louisville_CPT', 'Jacket_Police_Jefferson_CPT', 'Jacket_Sheriff_Jefferson_CPT',
+            'Jacket_Police_KSP_CPT'},
+        }, 'STFR')
+    end
+end
+
+OCCL.addAdditionalClothing(OCCL.STFR_Main.addRankedOutfits, OCCL.STFR_Main.checkRanksEnabled)
