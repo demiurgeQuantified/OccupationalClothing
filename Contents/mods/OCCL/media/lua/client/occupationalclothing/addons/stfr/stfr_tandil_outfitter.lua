@@ -15,6 +15,8 @@
 
     For any questions, contact me through steam or on Discord - albion#0123
 ]]
+return;
+
 require 'occupationalclothing/outfitter'
 require 'occupationalclothing/addons/stfr/stfr_tandil'
 
