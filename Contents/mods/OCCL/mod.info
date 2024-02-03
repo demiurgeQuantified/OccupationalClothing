@@ -1,9 +1,9 @@
 name=Occupational Clothing
 poster=OCCL.png
 id=OCCL
-description=Adds clothing options to all vanilla occupations. Has extra support for STR and Brita's Armour Pack. If you feel a mod should be supported, please suggest it!
+description=Adds clothing options to all vanilla occupations.
 require=ProfessionFramework
 versionMin=41.00
 authors=albion
-modversion=3.3.0
+modversion=3.4.0
 icon=occlmini.png
