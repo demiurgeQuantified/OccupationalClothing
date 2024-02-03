@@ -5,5 +5,4 @@ UI_EN = {
     UI_ClothingType_RightEye = "Eyepatch",
     UI_ClothingType_AmmoStrap = "Ammo Strap",
     UI_ClothingType_Ears = "Headset",
-    UI_ClothingType_Tail = "Radio",
 }

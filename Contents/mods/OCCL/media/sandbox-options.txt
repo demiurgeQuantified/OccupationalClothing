@@ -82,6 +82,14 @@ option OccupationalClothing.WantSTRFormalDress
 	translation = OccupationalClothing_WantSTRFormalDress,
 }
 
+option OccupationalClothing.WantSTRRanks
+{
+	type = boolean,
+	default = false,
+	page = OccupationalClothing,
+	translation = OccupationalClothing_WantSTRRanks,
+}
+
 option OccupationalClothing.STRBadges
 {
 	type = boolean,

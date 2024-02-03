@@ -20,14 +20,80 @@ local clothingPriorities = {'Shirt', 'Tshirt', 'Jacket'}
 
 local badgeTable = {
 	parkranger = {
-		Federal_Ranger = 'STR.FederalRangerBadge', State_Ranger = 'STR.StateRangerBadge', State_LawRanger = 'STR.StateLawRangerBadge'},
+		Federal_Ranger = 'STR.FederalRangerBadge', 
+		State_Ranger = 'STR.StateRangerBadge', 
+		State_LawRanger = 'STR.StateLawRangerBadge',
+
+		Ranger_Federal = 'STFR.Badge_Ranger_Federal_Gold', 
+		Ranger_Conservation = 'STFR.Badge_Ranger_Conservation_Gold', 
+		Ranger_State_Park = 'STFR.Badge_Ranger_State_Park_Silver'},
 	securityguard = {
-		Bank = 'STR.SecurityBankBadge', Havisham = 'STR.SecurityHotelHavishamBadge', Ohio = 'STR.SecurityMallOhioBadge', Valley = 'STR.SecurityMallValleyBadge', LV = 'STR.SecurityMallLVBadge'},
+		Bank = 'STR.SecurityBankBadge', 
+		Havisham = 'STR.SecurityHotelHavishamBadge', 
+		Ohio = 'STR.SecurityMallOhioBadge', 
+		Valley = 'STR.SecurityMallValleyBadge', 
+		LV = 'STR.SecurityMallLVBadge',
+
+		Security_Bank = 'STFR.Badge_Security_Bank_Gold', 
+		Security_Hotel_Havisham = 'STFR.Badge_Security_Hotel_Havisham_Gold', 
+		Security_Mall_Grand_Ohio = 'STFR.Badge_Security_Mall_Grand_Ohio_Silver', 
+		Security_Mall_Valley_Station = 'STFR.Badge_Security_Mall_Valley_Station_Gold', 
+		Security_Mall_Louisville = 'STFR.Badge_Security_Mall_Louisville_Silver'},
 	policeofficer = {
-		Muldraugh = 'STR.MuldraughPoliceBadge', Rosewood = 'STR.RosewoodSheriffBadge', WestPoint = 'STR.WestPointPoliceBadge',
-		Riverside = 'STR.RiversidePoliceBadge', Louisville = 'STR.LouisvillePoliceBadge',
-		Meade = 'STR.MeadeSheriffBadge', JeffersonPD = 'STR.JeffersonPoliceBadge', JeffersonSD = 'STR.JeffersonSheriffBadge', KSP = 'STR.KSPPoliceBadge',
-		RavenCreek = 'STR.RavenCreekPoliceBadge', Tandil = 'STR.TandilPoliceBadge',
+		Muldraugh = 'STR.MuldraughPoliceBadge', 
+		Rosewood = 'STR.RosewoodSheriffBadge', 
+		WestPoint = 'STR.WestPointPoliceBadge',
+		Riverside = 'STR.RiversidePoliceBadge', 
+		Louisville = 'STR.LouisvillePoliceBadge',
+		Meade = 'STR.MeadeSheriffBadge', 
+		JeffersonPD = 'STR.JeffersonPoliceBadge', 
+		JeffersonSD = 'STR.JeffersonSheriffBadge', 
+		KSP = 'STR.KSPPoliceBadge',
+		RavenCreek = 'STR.RavenCreekPoliceBadge', 
+		Tandil = 'STR.TandilPoliceBadge',
+		Greenport = 'STR.TandilPoliceBadge',
+
+		Police_Muldraugh_Officer = 'STFR.Badge_Police_Muldraugh_Silver', 
+		Sheriff_Rosewood_Officer = 'STFR.Badge_Sheriff_Rosewood_Silver', 
+		Police_WestPoint_Officer = 'STFR.Badge_Police_WestPoint_Silver',
+		Police_Riverside_Officer = 'STFR.Badge_Police_Riverside_Silver', 
+		Police_Louisville_Officer = 'STFR.Badge_Police_Louisville_Silver',
+		Sheriff_Meade_Officer = 'STFR.Badge_Sheriff_Meade_Gold', 
+		Police_Jefferson_Officer = 'STFR.Badge_Police_Jefferson_Silver', 
+		Sheriff_Jefferson_Officer = 'STFR.Badge_Sheriff_Jefferson_Gold', 
+		Police_KSP_Officer = 'STFR.Badge_Police_KSP_Silver',
+		Police_RavenCreek_Officer = 'STFR.Badge_Police_RavenCreek_Silver', 
+		Police_Tandil_Officer = 'STFR.Badge_Police_Tandil_Silver',
+		Police_Greenport_Officer = 'STFR.Badge_Police_Greenport_Gold',
+		Police_Tikitown_Officer = 'STFR.Badge_Police_Tikitown_Silver',
+
+		Police_Muldraugh_SGT = 'STFR.Badge_Police_Muldraugh_Gold', 
+		Sheriff_Rosewood_SGT = 'STFR.Badge_Sheriff_Rosewood_Gold', 
+		Police_WestPoint_SGT = 'STFR.Badge_Police_WestPoint_Gold',
+		Police_Riverside_SGT = 'STFR.Badge_Police_Riverside_Gold', 
+		Police_Louisville_SGT = 'STFR.Badge_Police_Louisville_Gold',
+		Sheriff_Meade_SGT = 'STFR.Badge_Sheriff_Meade_Gold', 
+		Police_Jefferson_SGT = 'STFR.Badge_Police_Jefferson_Gold', 
+		Sheriff_Jefferson_SGT = 'STFR.Badge_Sheriff_Jefferson_Gold', 
+		Police_KSP_SGT = 'STFR.Badge_Police_KSP_Gold',
+		Police_RavenCreek_SGT = 'STFR.Badge_Police_RavenCreek_Gold', 
+		Police_Tandil_SGT = 'STFR.Badge_Police_Tandil_Gold',
+		Police_Greenport_SGT = 'STFR.Badge_Police_Greenport_Gold',
+		Police_Tikitown_SGT = 'STFR.Badge_Police_Tikitown_Silver',
+
+		Police_Muldraugh_CPT = 'STFR.Badge_Police_Muldraugh_Gold', 
+		Sheriff_Rosewood_CPT = 'STFR.Badge_Sheriff_Rosewood_Gold', 
+		Police_WestPoint_CPT = 'STFR.Badge_Police_WestPoint_Gold',
+		Police_Riverside_CPT = 'STFR.Badge_Police_Riverside_Gold', 
+		Police_Louisville_CPT = 'STFR.Badge_Police_Louisville_Gold',
+		Sheriff_Meade_CPT = 'STFR.Badge_Sheriff_Meade_Gold', 
+		Police_Jefferson_CPT = 'STFR.Badge_Police_Jefferson_Gold', 
+		Sheriff_Jefferson_CPT = 'STFR.Badge_Sheriff_Jefferson_Gold', 
+		Police_KSP_CPT = 'STFR.Badge_Police_KSP_Gold',
+		Police_RavenCreek_CPT = 'STFR.Badge_Police_RavenCreek_Gold', 
+		Police_Tandil_CPT = 'STFR.Badge_Police_Tandil_Gold',
+		Police_Greenport_CPT = 'STFR.Badge_Police_Greenport_Gold',
+		Police_Tikitown_CPT = 'STFR.Badge_Police_Tikitown_Silver'
 	}
 }
 
@@ -52,7 +118,7 @@ local function grantItems()
 end
 
 local function OnCreatePlayer()
-	if getActivatedMods():contains('STR') or getActivatedMods():contains('SmallTownResponders') then
+	if getActivatedMods():contains('STR') or getActivatedMods():contains('STFR') then
     	grantItems()
 	end
 end

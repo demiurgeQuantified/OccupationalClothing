@@ -30,6 +30,8 @@ Sandbox_EN = {
 	Sandbox_OccupationalClothing_WantSTR_tooltip = "STFR uniforms for the fire officer, police officer, park ranger, security guard and nurse occupations. Does nothing if STFR is not enabled.",
 	Sandbox_OccupationalClothing_WantSTRFormalDress = "STFR: Dress uniforms",
 	Sandbox_OccupationalClothing_WantSTRFormalDress_tooltip = "Formal dress uniforms for the appropriate occupations.",
+	Sandbox_OccupationalClothing_WantSTRRanks = "STFR: Ranked uniforms",
+	Sandbox_OccupationalClothing_WantSTRRanksDress_tooltip = "Ranked uniforms for the appropriate occupations.",
 
 	Sandbox_OccupationalClothing_WantRavenCreekPD = "STFR: Raven Creek Content",
 	Sandbox_OccupationalClothing_WantRavenCreekPD_tooltip = "Raven Creek uniforms for the fire officer, police officer, and nurse occupations. Does nothing if STFR and RavenCreek are not enabled.",
