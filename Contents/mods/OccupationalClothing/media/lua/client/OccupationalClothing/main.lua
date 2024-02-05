@@ -1,38 +1,32 @@
 local Json = require "Starlit/file/Json"
-local DebugLog = require "Starlit/debug/DebugLog"
+local StarlitLog = require "Starlit/debug/StarlitLog"
 local TableUtils = require "Starlit/utils/TableUtils"
-
----@type table<string, true>?
-local professionMap
-
----@class ItemDef
----@field tags table<string, true>? Lookup table of tags
----@field professions table<integer, string>? List of professions this item should be made available for
-
----@type table<string, ItemDef>
-local clothing = {}
 
 local OccupationalClothing = {}
 
-local cacheProfessions = function()
-    professionMap = {}
+---@type table<string, table<string, table<string, true>>>?
+local clothing
+
+local initClothingTables = function()
+    clothing = {}
     local professions = ProfessionFactory.getProfessions()
     for i = 0, professions:size()-1 do
-        ---@type Profession
-        local profession = professions:get(i)
-        professionMap[profession:getType()] = true
+        clothing[professions:get(i):getType()] = {}
     end
 end
+
+local log = StarlitLog.getLoggingFunction("OccupationalClothing")
 
 ---Reads a file and adds it to the cached changes. Clothing is not actually added until applyClothing() is called
 ---@param path string The filepath to read
 OccupationalClothing.readFile = function(path)
     local fileData = Json.fromFile(path)
-    if not fileData then DebugLog.log(DebugLog.LogLevel.DEBUG, "File %s not found or invalid", path); return end
+    if not fileData then log(StarlitLog.LogLevel.DEBUG, "File %s not found or invalid", path); return end
 
-    if fileData.version ~= "1.0" then DebugLog.log(DebugLog.LogLevel.WARN, "File %s has invalid version (%s)", path, fileData.version); return end
+    if fileData.version ~= "1.0" then log(StarlitLog.LogLevel.WARN, "File %s has invalid version (%s)", path, fileData.version); return end
 
-    if not professionMap then cacheProfessions() end
+    if not clothing then initClothingTables() end
+    ---@cast clothing table<string, table<string, table<string, true>>>
 
     local fileModule = fileData.module and fileData.module .. "." or "Base."
     for itemType,data in pairs(fileData.items) do
@@ -40,79 +34,56 @@ OccupationalClothing.readFile = function(path)
             itemType = fileModule .. itemType
         end
 
-        data.tags = TableUtils.toLookup(data.tags)
-
-        if not clothing[itemType] then
-            clothing[itemType] = data
-        else
-            local entry = clothing[itemType]
-            for tag,_ in pairs(data.tags) do
-                entry.tags[tag] = true
-            end
-
-            local profMap = TableUtils.toLookup(entry.professions)
-            for i = 1, #data.professions do
-                local profession = data.professions[i]
-                if not profMap[profession] then
-                    table.insert(entry.professions, profession)
+        local item = ScriptManager.instance:getItem(itemType)
+        if item then
+            if item:getBodyLocation() ~= "" then
+                local tags = TableUtils.toLookup(data.tags)
+                for i = 1, #data.professions do
+                    local profession = data.professions[i]
+                    if clothing[profession] then
+                        clothing[profession][itemType] = tags
+                    else
+                        log(StarlitLog.LogLevel.DEBUG, "Clothing item %s specifies unknown profession %s, ignoring", itemType, profession)
+                    end
                 end
+            else
+                log(StarlitLog.LogLevel.DEBUG, "Item %s is not wearable, ignoring", itemType)
             end
+        else
+            log(StarlitLog.LogLevel.DEBUG, "Unknown item %s, ignoring", itemType)
         end
     end
 end
 
 ---Applies the cached clothing changes
-OccupationalClothing.applyClothing = function()
-    if not professionMap then cacheProfessions() end
+---@param charCreation CharacterCreationMain
+OccupationalClothing.injectClothing = function(charCreation)
+    if CharacterCreationMain.debug then return end
 
-    ---@type table<string, Item|false>
-    local itemCache = {}
+    local profession = MainScreen.instance.desc:getProfession()
+    if not (clothing and clothing[profession]) then return end
 
-    ---@param type string
-    ---@return Item|false
-    local function getItem(type)
-        if itemCache[type] == nil then
-            itemCache[type] = ScriptManager.instance:getItem(type) or false
-        end
-        return itemCache[type]
+    local t = {}
+    for itemType,tags in pairs(clothing[profession]) do
+        local item = ScriptManager.instance:getItem(itemType)
+        local bodyLocation = item:getBodyLocation()
+        t[bodyLocation] = t[bodyLocation] or {items = {}}
+
+        table.insert(t[bodyLocation].items, itemType)
     end
 
-    for profession,_ in pairs(professionMap) do
-        ClothingSelectionDefinitions[profession] = ClothingSelectionDefinitions[profession] or {Female = {}}
-    end
-
-    for itemType,data in pairs(clothing) do
-        local item = getItem(itemType)
-        if item then
-            local bodyLocation = item:getBodyLocation()
-            for j = 1, #data.professions do
-                local profession = data.professions[j]
-                if professionMap[profession] then
-                    local profTable = ClothingSelectionDefinitions[profession].Female
-                    profTable[bodyLocation] = profTable[bodyLocation] or {items = {}}
-                    table.insert(profTable[bodyLocation].items, itemType)
-                else
-                    DebugLog.log(DebugLog.LogLevel.DEBUG, "Clothing item %s specifies unknown profession %s, ignoring", itemType, profession)
-                end
-            end
-        else
-            DebugLog.log(DebugLog.LogLevel.DEBUG, "Unknown clothing item %s, ignoring", itemType)
-        end
-    end
-end
-
---- Frees resources not needed during gameplay
-OccupationalClothing.free = function()
-    professionMap = nil
-    clothing = {}
+    charCreation:doClothingCombo(t, false)
 end
 
 Events.OnGameBoot.Add(function()
     OccupationalClothing.readFile("OccupationalClothing.json")
-    -- this should be delayed until after the sandbox options are set
-    OccupationalClothing.applyClothing()
-
-    OccupationalClothing.free()
 end)
+
+local old_initClothing = CharacterCreationMain.initClothing
+
+function CharacterCreationMain:initClothing()
+    old_initClothing(self)
+    OccupationalClothing.injectClothing(self)
+end
 
 return OccupationalClothing
