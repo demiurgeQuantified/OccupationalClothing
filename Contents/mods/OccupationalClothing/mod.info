@@ -1,8 +1,8 @@
 name=Occupational Clothing
 poster=OCCL.png
-id=OCCL
+id=OccupationalClothing
 description=Adds clothing options to all vanilla occupations.
-require=ProfessionFramework
+require=StarlitLibrary
 versionMin=41.00
 authors=albion
 modversion=3.4.0

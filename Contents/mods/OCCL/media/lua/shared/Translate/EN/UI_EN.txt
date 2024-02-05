@@ -1,8 +1,0 @@
-UI_EN = {
-    UI_ClothingType_MaskEyes = "Full Mask",
-    UI_ClothingType_Mask = "Mask",
-    UI_ClothingType_BeltExtra = "Holster",
-    UI_ClothingType_RightEye = "Eyepatch",
-    UI_ClothingType_AmmoStrap = "Ammo Strap",
-    UI_ClothingType_Ears = "Headset",
-}
