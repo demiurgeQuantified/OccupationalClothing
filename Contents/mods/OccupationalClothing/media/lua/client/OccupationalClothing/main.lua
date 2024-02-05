@@ -4,7 +4,7 @@ local TableUtils = require "Starlit/utils/TableUtils"
 
 local OccupationalClothing = {}
 
----@type table<string, table<string, table<string, true>>>?
+---@type table<string, table<string, table<string>>>?
 local clothing
 
 local initClothingTables = function()
@@ -37,11 +37,10 @@ OccupationalClothing.readFile = function(path)
         local item = ScriptManager.instance:getItem(itemType)
         if item then
             if item:getBodyLocation() ~= "" then
-                local tags = TableUtils.toLookup(data.tags)
                 for i = 1, #data.professions do
                     local profession = data.professions[i]
                     if clothing[profession] then
-                        clothing[profession][itemType] = tags
+                        clothing[profession][itemType] = data.tags
                     else
                         log(StarlitLog.LogLevel.DEBUG, "Clothing item %s specifies unknown profession %s, ignoring", itemType, profession)
                     end
@@ -63,16 +62,38 @@ OccupationalClothing.injectClothing = function(charCreation)
     local profession = MainScreen.instance.desc:getProfession()
     if not (clothing and clothing[profession]) then return end
 
+    local bannedTags = OccupationalClothing.getBannedTags()
+
     local t = {}
     for itemType,tags in pairs(clothing[profession]) do
-        local item = ScriptManager.instance:getItem(itemType)
-        local bodyLocation = item:getBodyLocation()
-        t[bodyLocation] = t[bodyLocation] or {items = {}}
+        local shouldAddItem = true
+        for i = 1, #tags do
+            if bannedTags[tags[i]] then
+                shouldAddItem = false
+                break
+            end
+        end
 
-        table.insert(t[bodyLocation].items, itemType)
+        if shouldAddItem then
+            local bodyLocation = ScriptManager.instance:getItem(itemType):getBodyLocation()
+            t[bodyLocation] = t[bodyLocation] or {items = {}}
+
+            table.insert(t[bodyLocation].items, itemType)
+        end
     end
 
     charCreation:doClothingCombo(t, false)
+end
+
+---Returns a lookup table where banned tags resolve to true
+---@return table<string, true>
+OccupationalClothing.getBannedTags = function()
+    -- TODO: there can definitely be a better API for custom tags than hooking this...
+    local tags = {}
+    if ZombRand(2) == 0 then
+        tags["Hat"] = true
+    end
+    return tags
 end
 
 Events.OnGameBoot.Add(function()
