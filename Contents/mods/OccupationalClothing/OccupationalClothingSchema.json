@@ -1,0 +1,48 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "OccupationalClothingSchema.json",
+    "title": "Occupational Clothing Schema",
+    "description": "Defines clothing items and tags for Occupational Clothing",
+    "type": "object",
+    "properties": {
+        "$schema": { "type": "string" },
+        "version": {
+            "type": "string",
+            "pattern": "1.0",
+            "description": "The version of the schema used to create the file. This is for handling outdated files."
+        },
+        "module": {
+            "type": "string",
+            "description": "The module to search for items that are specified by their short type (Item instead of Module.Item)",
+            "default": "Base"
+        },
+        "items": {
+            "type": "object",
+            "description": "Key-value pairs of items. The key should be the item's type.",
+            "additionalProperties": {
+                "type": "object",
+                "properties": {
+                    "professions": {
+                        "type": "array",
+                        "description": "The professions who should have access to this item. If not specified, all professions can wear this item.",
+                        "items": {
+                            "type": "string"
+                        },
+                        "minItems": 1
+                    },
+                    "tags": {
+                        "type": "array",
+                        "description": "Tags for this item. Used to filter items for sandbox options.",
+                        "items": {
+                            "type": "string",
+                            "pattern": "^[A-Z]"
+                        }
+                    }
+                },
+                "additionalProperties": false
+            }
+        }
+    },
+    "required": ["version", "items"],
+    "additionalProperties": false
+}

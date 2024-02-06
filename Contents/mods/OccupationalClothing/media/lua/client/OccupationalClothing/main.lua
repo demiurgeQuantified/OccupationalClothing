@@ -17,13 +17,15 @@ end
 
 local log = StarlitLog.getLoggingFunction("OccupationalClothing")
 
----Reads a file and adds it to the cached changes. Clothing is not actually added until applyClothing() is called
+---Reads a file and adds its clothing to the table
 ---@param path string The filepath to read
-OccupationalClothing.readFile = function(path)
-    local fileData = Json.fromFile(path)
-    if not fileData then log(StarlitLog.LogLevel.DEBUG, "File %s not found or invalid", path); return end
+---@param mod string|nil The id of the mod containing the file. Defaults to searching Zomboid/Lua/ instead
+OccupationalClothing.readFile = function(path, mod)
+    local fileData = Json.fromFile(path, mod)
+    mod = mod or "User directory" -- for logging purposes
+    if not fileData then return end
 
-    if fileData.version ~= "1.0" then log(StarlitLog.LogLevel.WARN, "File %s has invalid version (%s)", path, fileData.version); return end
+    if fileData.version ~= "1.0" then log(StarlitLog.LogLevel.WARN, "File %s (%s) has invalid version (%s)", path, mod, fileData.version); return end
 
     if not clothing then initClothingTables() end
     ---@cast clothing table<string, table<string, table<string, true>>>
@@ -46,7 +48,7 @@ OccupationalClothing.readFile = function(path)
                     end
                 end
             else
-                log(StarlitLog.LogLevel.DEBUG, "Item %s is not wearable, ignoring", itemType)
+                log(StarlitLog.LogLevel.WARN, "Item %s is not wearable, ignoring", itemType)
             end
         else
             log(StarlitLog.LogLevel.DEBUG, "Unknown item %s, ignoring", itemType)
@@ -54,7 +56,7 @@ OccupationalClothing.readFile = function(path)
     end
 end
 
----Applies the cached clothing changes
+---Injects clothing into the CharacterCreationMain instance
 ---@param charCreation CharacterCreationMain
 OccupationalClothing.injectClothing = function(charCreation)
     if CharacterCreationMain.debug then return end
@@ -88,20 +90,34 @@ end
 ---Returns a lookup table where banned tags resolve to true
 ---@return table<string, true>
 OccupationalClothing.getBannedTags = function()
-    -- TODO: there can definitely be a better API for custom tags than hooking this...
     local tags = {}
-    if ZombRand(2) == 0 then
-        tags["Hat"] = true
-    end
+
+    -- TODO: not sure how these are actually going to be set yet, sandbox options are the obvious fallback but something less hardcoded would be nice
+
     return tags
 end
 
+--ideally this should run later, as most mods add their professions during this event
+--but they usually do that in shared, so they should all load first, so it should be fine for now?
 Events.OnGameBoot.Add(function()
-    OccupationalClothing.readFile("OccupationalClothing.json")
+    if not isClient() then -- i don't think this can work in multiplayer, unless the server can send data before the player even loads the world?
+        OccupationalClothing.readFile("OccupationalClothing.json")
+    end
+
+    OccupationalClothing.readFile("OccupationalClothing.json", "OccupationalClothing")
+
+    ---@type table<integer, string>
+    local mods = TableUtils.fromArray(getActivatedMods())
+    table.remove(mods, TableUtils.find(mods, "OccupationalClothing")) -- remove main mod's file since it always loads first
+
+    for i = 1, #mods do
+        OccupationalClothing.readFile("OccupationalClothing.json", mods[i])
+    end
 end)
 
 local old_initClothing = CharacterCreationMain.initClothing
 
+---@diagnostic disable-next-line: duplicate-set-field
 function CharacterCreationMain:initClothing()
     old_initClothing(self)
     OccupationalClothing.injectClothing(self)

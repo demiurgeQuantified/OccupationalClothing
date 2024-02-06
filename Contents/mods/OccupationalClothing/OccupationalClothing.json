@@ -1,0 +1,179 @@
+{
+    "$schema": "OccupationalClothingSchema.json",
+    "version": "1.0",
+    "items": {
+        "Hat_GasMask": {
+            "professions": ["fireofficer"]
+        },
+        "Vest_Foreman": {
+            "professions": ["constructionworker"]
+        },
+        "Shoes_BlackBoots": {
+            "professions": ["constructionworker", "carpenter", "farmer", "electrician"]
+        },
+        "Glasses_Sun": {
+            "professions": ["securityguard"]
+        },
+        "Tie_Full": {
+            "professions": ["securityguard"]
+        },
+        "Apron_White": {
+            "professions": ["chef"]
+        },
+        "Apron_Black": {
+            "professions": ["chef"]
+        },
+        "Dungarees": {
+            "professions": ["repairman", "farmer", "fisherman"]
+        },
+        "Shirt_Workman": {
+            "professions": ["repairman"]
+        },
+        "Hat_BucketHat": {
+            "professions": ["fisherman"]
+        },
+        "Vest_Hunting_Grey": {
+            "professions": ["fisherman"]
+        },
+        "Vest_Hunting_Camo": {
+            "professions": ["fisherman"]
+        },
+        "Vest_Hunting_CamoGreen": {
+            "professions": ["fisherman"]
+        },
+        "Hat_SurgicalMask_Blue": {
+            "professions": ["doctor"]
+        },
+        "Hat_SurgicalMask_Green": {
+            "professions": ["doctor"]
+        },
+        "Shorts_CamoUrbanLong": {
+            "professions": ["veteran"]
+        },
+        "Trousers_ArmyService": {
+            "professions": ["veteran"]
+        },
+        "Tshirt_Scrubs": {
+            "professions": ["nurse"]
+        },
+        "Shoes_Slippers": {
+            "professions": ["nurse"]
+        },
+        "Hat_FastFood": {
+            "professions": ["burgerflipper"]
+        },
+        "Tshirt_PileOCrepe": {
+            "professions": ["burgerflipper"]
+        },
+        "Tshirt_PizzaWhirled": {
+            "professions": ["burgerflipper"]
+        },
+        "Apron_PileOCrepe": {
+            "professions": ["burgerflipper"]
+        },
+        "Apron_PizzaWhirled": {
+            "professions": ["burgerflipper"]
+        },
+        "Apron_Spiffos": {
+            "professions": ["burgerflipper"]
+        },
+        "Boilersuit": {
+            "professions": ["electrician", "metalworker"]
+        },
+        "Boilersuit_BlueRed": {
+            "professions": ["mechanics"]
+        },
+        "Hat_HardHat": {
+            "professions": ["constructionworker", "carpenter", "electrician", "engineer", "metalworker"],
+            "tags": ["Hardhat"]
+        },
+        "Gloves_LeatherGlovesBlack": {
+            "professions": ["electrician", "mechanics"],
+            "tags": ["Gloves"]
+        },
+        "Jacket_CoatArmy": {
+            "professions": ["veteran"],
+            "tags": ["Jacket"]
+        },
+        "JacketLong_Doctor": {
+            "professions": ["doctor"],
+            "tags": ["Jacket"]
+        },
+        "Hat_Police_Grey": {
+            "professions": ["policeofficer"],
+            "tags": ["VanillaEMS"]
+        },
+        "Shirt_OfficerWhite": {
+            "professions": ["policeofficer", "parkranger"],
+            "tags": ["VanillaEMS"]
+        },
+        "Shirt_PoliceBlue": {
+            "professions": ["policeofficer"],
+            "tags": ["VanillaEMS"]
+        },
+        "Shirt_PoliceGrey": {
+            "professions": ["policeofficer"],
+            "tags": ["VanillaEMS"]
+        },
+        "Shirt_PrisonGuard": {
+            "professions": ["policeofficer"],
+            "tags": ["VanillaEMS"]
+        },
+        "Tshirt_PoliceBlue": {
+            "professions": ["policeofficer"],
+            "tags": ["VanillaEMS"]
+        },
+        "Tshirt_PoliceGrey": {
+            "professions": ["policeofficer"],
+            "tags": ["VanillaEMS"]
+        },
+        "Trousers_PoliceGrey": {
+            "professions": ["policeofficer"],
+            "tags": ["VanillaEMS"]
+        },
+        "Trousers_PrisonGuard": {
+            "professions": ["policeofficer"],
+            "tags": ["VanillaEMS"]
+        },
+        "Hat_Ranger": {
+            "professions": ["parkranger"],
+            "tags": ["VanillaEMS"]
+        },
+        "Shirt_Ranger": {
+            "professions": ["parkranger"],
+            "tags": ["VanillaEMS"]
+        },
+        "Tshirt_Ranger": {
+            "professions": ["parkranger"],
+            "tags": ["VanillaEMS"]
+        },
+        "Jacket_Ranger": {
+            "professions": ["parkranger"],
+            "tags": ["VanillaEMS", "Jacket"]
+        },
+        "Jacket_Police": {
+            "professions": ["policeofficer"],
+            "tags": ["VanillaEMS", "Jacket"]
+        },
+        "Jacket_Fireman": {
+            "professions": ["fireofficer"],
+            "tags": ["VanillaEMS", "FireJacket"]
+        },
+        "Hat_Fireman": {
+            "professions": ["fireofficer"],
+            "tags": ["VanillaEMS", "Hardhat"]
+        },
+        "Hat_CrashHelmet_Police": {
+            "professions": ["policeofficer"],
+            "tags": ["VanillaEMS", "Armour"]
+        },
+        "Hat_RiotHelmet": {
+            "professions": ["policeofficer"],
+            "tags": ["VanillaEMS", "Armour"]
+        },
+        "Vest_BulletPolice": {
+            "professions": ["policeofficer"],
+            "tags": ["VanillaEMS", "Armour"]
+        }
+    }
+}
