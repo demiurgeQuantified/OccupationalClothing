@@ -104,7 +104,7 @@ function OCCL.STFR_Main.addClothes()
             TorsoExtra = {'Base.Vest_BulletPolice', 'STFR.Vest_BulletSheriff_Meade'},
         }, false)
         OCCL.UpdateClothing('policeofficer', {
-            Hat = {'Hat_Riot_Helmet_Louisville', 'Hat_Riot_Helmet_KSP', 'Hat_Riot_Helmet_Meade', 'Hat_Riot_Helmet_Sheriff_Meade_Solid', 'Hat_Riot_Helmet_Sheriff_Meade_Stripe',
+            Hat = {'Hat_Riot_Helmet_Police_Louisville', 'Hat_Riot_Helmet_Police_KSP', 'Hat_Riot_Helmet_Sheriff_Meade', 'Hat_Riot_Helmet_Sheriff_Meade_Solid', 'Hat_Riot_Helmet_Sheriff_Meade_Stripe',
             'Hat_Riot_Helmet_Police_Muldraugh', 'Hat_Riot_Helmet_Police_Riverside', 'Hat_Riot_Helmet_Police_Riverside_Stripe', 'Hat_Riot_Helmet_Police_WestPoint', 'Hat_Riot_Helmet_Police_Jefferson',
             'Hat_Riot_Helmet_Sheriff_Rosewood', 'Hat_Riot_Helmet_Sheriff_Jefferson'},
             Gloves = {'Gloves_Riot_Leather_Black', 'Gloves_Riot_Leather_Brown'},
