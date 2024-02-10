@@ -56,7 +56,7 @@ function OCCL.STFR_Tandil.addClothes()
     end
     if SandboxVars.OccupationalClothing.WantVests then
         OCCL.UpdateClothing('policeofficer', {
-            Hat = {'Hat_Riot_Helmet_Tandil'},
+            Hat = {'Hat_Riot_Helmet_Police_Tandil'},
         }, 'STFR')
     end
 
