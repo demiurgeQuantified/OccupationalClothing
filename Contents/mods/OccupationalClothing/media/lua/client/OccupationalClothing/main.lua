@@ -42,7 +42,7 @@ OccupationalClothing.readFile = function(path, mod)
                 for i = 1, #data.professions do
                     local profession = data.professions[i]
                     if clothing[profession] then
-                        clothing[profession][itemType] = data.tags
+                        clothing[profession][itemType] = data.tags or {}
                     else
                         log(StarlitLog.LogLevel.DEBUG, "Clothing item %s specifies unknown profession %s, ignoring", itemType, profession)
                     end
