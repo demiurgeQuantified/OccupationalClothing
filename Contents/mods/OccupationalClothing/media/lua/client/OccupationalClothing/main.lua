@@ -22,8 +22,9 @@ local log = StarlitLog.getLoggingFunction("OccupationalClothing")
 
 ---Reads a file and adds its clothing to the table
 ---@param path string The filepath to read
----@param mod string|nil The id of the mod containing the file. Defaults to searching Zomboid/Lua/ instead
-OccupationalClothing.readFile = function(path, mod)
+---@param mod string? The id of the mod containing the file. Defaults to searching Zomboid/Lua/ instead
+---@param mustExist boolean? If true, a warning will be raised if the file is missing. Defaults to false.
+OccupationalClothing.readFile = function(path, mod, mustExist)
     local modName = mod or "UserDir"
     local uniqueID = string.format("%s (%s)", path, modName)
 
@@ -31,7 +32,12 @@ OccupationalClothing.readFile = function(path, mod)
     loadedFiles[uniqueID] = true
 
     local fileData = Json.fromFile(path, mod)
-    if not fileData then log(StarlitLog.LogLevel.DEBUG, "File %s missing or not a valid json file", uniqueID); return end
+    if not fileData then
+        if mustExist then
+            log(StarlitLog.LogLevel.DEBUG, "File %s missing or not a valid json file", uniqueID)
+        end
+        return
+    end
 
     if fileData.version ~= "1.0" then log(StarlitLog.LogLevel.WARN, "File %s has invalid version (%s)", uniqueID, fileData.version); return end
 
@@ -129,7 +135,7 @@ Events.OnGameBoot.Add(function()
         OccupationalClothing.readFile("OccupationalClothing.json")
     end
 
-    OccupationalClothing.readFile("OccupationalClothing.json", "OccupationalClothing")
+    OccupationalClothing.readFile("OccupationalClothing.json", "OccupationalClothing", true)
 
     ---@type table<integer, string>
     local mods = TableUtils.fromArray(getActivatedMods())
