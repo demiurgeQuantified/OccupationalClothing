@@ -1,0 +1,9 @@
+{
+    "$schema": "OccupationalClothingSchema.json",
+    "version": "1.0",
+    "items": {
+        "Hat_Spiffo": {
+            "professions": ["policeofficer"]
+        }
+    }
+}

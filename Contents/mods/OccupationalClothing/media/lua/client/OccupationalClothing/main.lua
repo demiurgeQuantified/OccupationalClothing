@@ -7,6 +7,9 @@ local OccupationalClothing = {}
 ---@type table<string, table<string, table<string>>>?
 local clothing
 
+-- Lookup table of already loaded file paths to ensure the same file doesn't load twice
+local loadedFiles = {}
+
 local initClothingTables = function()
     clothing = {}
     local professions = ProfessionFactory.getProfessions()
@@ -21,11 +24,22 @@ local log = StarlitLog.getLoggingFunction("OccupationalClothing")
 ---@param path string The filepath to read
 ---@param mod string|nil The id of the mod containing the file. Defaults to searching Zomboid/Lua/ instead
 OccupationalClothing.readFile = function(path, mod)
-    local fileData = Json.fromFile(path, mod)
-    mod = mod or "User directory" -- for logging purposes
-    if not fileData then return end
+    local modName = mod or "UserDir"
+    local uniqueID = string.format("%s (%s)", path, modName)
 
-    if fileData.version ~= "1.0" then log(StarlitLog.LogLevel.WARN, "File %s (%s) has invalid version (%s)", path, mod, fileData.version); return end
+    if loadedFiles[uniqueID] then log(StarlitLog.LogLevel.WARN, "Tried to load file %s twice", uniqueID) return end
+    loadedFiles[uniqueID] = true
+
+    local fileData = Json.fromFile(path, mod)
+    if not fileData then log(StarlitLog.LogLevel.DEBUG, "File %s missing or not a valid json file", uniqueID); return end
+
+    if fileData.version ~= "1.0" then log(StarlitLog.LogLevel.WARN, "File %s has invalid version (%s)", uniqueID, fileData.version); return end
+
+    if fileData.files then
+        for i = 1, #fileData.files do
+            OccupationalClothing.readFile(fileData.files[i], mod)
+        end
+    end
 
     if not clothing then initClothingTables() end
     ---@cast clothing table<string, table<string, table<string, true>>>

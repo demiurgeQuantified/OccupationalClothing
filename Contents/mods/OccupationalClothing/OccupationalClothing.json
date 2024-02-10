@@ -175,5 +175,6 @@
             "professions": ["policeofficer"],
             "tags": ["VanillaEMS", "Armour"]
         }
-    }
+    },
+    "files": ["OccupationalClothing2.json"]
 }

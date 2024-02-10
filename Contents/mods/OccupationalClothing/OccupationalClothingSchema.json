@@ -41,6 +41,15 @@
                 },
                 "additionalProperties": false
             }
+        },
+        "files": {
+            "type": "array",
+            "description": "List of other files to load when loading this file.",
+            "items": {
+                "type": "string",
+                "pattern": ".json$"
+            },
+            "minItems": 1
         }
     },
     "required": ["version", "items"],
