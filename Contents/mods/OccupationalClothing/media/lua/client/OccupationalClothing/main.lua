@@ -4,14 +4,14 @@ local TableUtils = require "Starlit/utils/TableUtils"
 
 local OccupationalClothing = {}
 
----@type table<string, table<string, table<string>>>?
+---@type table<string, table<string, table<string, true>>>?
 local clothing
 
 -- Lookup table of already loaded file paths to ensure the same file doesn't load twice
 local loadedFiles = {}
 
 local initClothingTables = function()
-    clothing = {}
+    clothing = { __all = {} }
     local professions = ProfessionFactory.getProfessions()
     for i = 0, professions:size()-1 do
         clothing[professions:get(i):getType()] = {}
@@ -53,12 +53,17 @@ OccupationalClothing.readFile = function(path, mod)
         local item = ScriptManager.instance:getItem(itemType)
         if item then
             if item:getBodyLocation() ~= "" then
-                for i = 1, #data.professions do
-                    local profession = data.professions[i]
-                    if clothing[profession] then
-                        clothing[profession][itemType] = data.tags or {}
-                    else
-                        log(StarlitLog.LogLevel.DEBUG, "Clothing item %s specifies unknown profession %s, ignoring", itemType, profession)
+                local numProfessions = #data.professions
+                if numProfessions < 1 then
+                    clothing.__all[itemType] = data.tags or {}
+                else
+                    for i = 1, numProfessions do
+                        local profession = data.professions[i]
+                        if clothing[profession] then
+                            clothing[profession][itemType] = data.tags or {}
+                        else
+                            log(StarlitLog.LogLevel.DEBUG, "Clothing item %s specifies unknown profession %s, ignoring", itemType, profession)
+                        end
                     end
                 end
             else
@@ -80,25 +85,31 @@ OccupationalClothing.injectClothing = function(charCreation)
 
     local bannedTags = OccupationalClothing.getBannedTags()
 
-    local t = {}
-    for itemType,tags in pairs(clothing[profession]) do
-        local shouldAddItem = true
-        for i = 1, #tags do
-            if bannedTags[tags[i]] then
-                shouldAddItem = false
-                break
+    local additionalClothing = {}
+    ---@param clothes table<string, table<string, true>>
+    local function addClothes(clothes)
+        for itemType,tags in pairs(clothes) do
+            local shouldAddItem = true
+            for i = 1, #tags do
+                if bannedTags[tags[i]] then
+                    shouldAddItem = false
+                    break
+                end
             end
-        end
 
-        if shouldAddItem then
-            local bodyLocation = ScriptManager.instance:getItem(itemType):getBodyLocation()
-            t[bodyLocation] = t[bodyLocation] or {items = {}}
+            if shouldAddItem then
+                local bodyLocation = ScriptManager.instance:getItem(itemType):getBodyLocation()
+                additionalClothing[bodyLocation] = additionalClothing[bodyLocation] or {items = {}}
 
-            table.insert(t[bodyLocation].items, itemType)
+                table.insert(additionalClothing[bodyLocation].items, itemType)
+            end
         end
     end
 
-    charCreation:doClothingCombo(t, false)
+    addClothes(clothing[profession])
+    addClothes(clothing.__all)
+
+    charCreation:doClothingCombo(additionalClothing, false)
 end
 
 ---Returns a lookup table where banned tags resolve to true
