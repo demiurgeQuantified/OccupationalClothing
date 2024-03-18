@@ -15,95 +15,93 @@
 
     For any questions, contact me through steam or on Discord - albion#0123
 ]]
-return;
+-- require 'occupationalclothing/outfitter'
+-- require 'occupationalclothing/addons/stfr/stfr_ravencreek'
 
-require 'occupationalclothing/outfitter'
-require 'occupationalclothing/addons/stfr/stfr_ravencreek'
+-- OCCL.Outfitter.STFR_RavenCreek = {}
 
-OCCL.Outfitter.STFR_RavenCreek = {}
+-- function OCCL.Outfitter.STFR_RavenCreek.generateMapClothingTables()
+--     local professionTable = {}
 
-function OCCL.Outfitter.STFR_RavenCreek.generateMapClothingTables()
-    local professionTable = {}
+--     professionTable['fireofficer'] = {
+--         {
+--             ['Hat'] = 'STFR.Hat_Fireman_RavenCreek_Yellow',
+--             ['Jacket'] = 'STFR.Jacket_Fireman_Khaki_RavenCreek',
+--             ['Tshirt'] = {'STFR.TShirt_Profession_Fireman_Blue_RavenCreek', 'STFR.TShirt_Profession_Fireman_Red_RavenCreek', 'STFR.TShirt_Profession_Fireman_Red_RavenCreek02', 'STFR.TShirt_Profession_Fireman_White_RavenCreek',},
+--             ['Pants'] = 'STFR.Trousers_Fireman_Khaki_RavenCreek',
+--             ['Shoes'] = 'Base.Shoes_ArmyBoots',
+--         },
+--         {
+--             ['Hat'] = 'STFR.Hat_Fireman_RavenCreek_Red',
+--             ['Jacket'] = 'STFR.Jacket_Fireman_Black_RavenCreek',
+--             ['Tshirt'] = {'STFR.TShirt_Profession_Fireman_Blue_RavenCreek', 'STFR.TShirt_Profession_Fireman_Red_RavenCreek', 'STFR.TShirt_Profession_Fireman_Red_RavenCreek02', 'STFR.TShirt_Profession_Fireman_White_RavenCreek',},
+--             ['Pants'] = 'STFR.Trousers_Fireman_Black_RavenCreek',
+--             ['Shoes'] = 'Base.Shoes_ArmyBoots',
+--         },
+--     }
+--     professionTable['policeofficer'] = {
+--         {
+--             ['Hat'] = 'STFR.Hat_Police_RavenCreek_Officer',
+--             ['Jacket'] = 'STFR.Jacket_Police_RavenCreek_Officer',
+--             ['Shirt'] = 'STFR.Shirt_Police_RavenCreek_Officer',
+--             ['Tshirt'] = 'STFR.TShirt_Police_RavenCreek_Officer',
+--             ['TorsoExtra'] = 'Base.Vest_BulletPolice',
+--             ['Pants'] = 'STFR.Trousers_Police_RavenCreek',
+--             ['Neck'] = {'STFR.Tie_Full_Police_RavenCreek', 'STFR.Tie_Worn_Police_RavenCreek',},
+--         },
+--     }
+--     professionTable['nurse'] = {
+--         {
+--             ['Hat'] = 'STFR.Hat_BaseballCap_EMS_RavenCreek',
+--             ['Jacket'] = 'STFR.Jacket_EMS_RavenCreek',
+--             ['Shirt'] = 'STFR.Shirt_EMS_RavenCreek',
+--             ['Tshirt'] = 'STFR.TShirt_EMS_RavenCreek',
+--             ['Pants'] = 'STFR.Trousers_EMS_RavenCreek',
+--         },
+--     }
 
-    professionTable['fireofficer'] = {
-        {
-            ['Hat'] = 'STFR.Hat_Fireman_RavenCreek_Yellow',
-            ['Jacket'] = 'STFR.Jacket_Fireman_Khaki_RavenCreek',
-            ['Tshirt'] = {'STFR.TShirt_Profession_Fireman_Blue_RavenCreek', 'STFR.TShirt_Profession_Fireman_Red_RavenCreek', 'STFR.TShirt_Profession_Fireman_Red_RavenCreek02', 'STFR.TShirt_Profession_Fireman_White_RavenCreek',},
-            ['Pants'] = 'STFR.Trousers_Fireman_Khaki_RavenCreek',
-            ['Shoes'] = 'Base.Shoes_ArmyBoots',
-        },
-        {
-            ['Hat'] = 'STFR.Hat_Fireman_RavenCreek_Red',
-            ['Jacket'] = 'STFR.Jacket_Fireman_Black_RavenCreek',
-            ['Tshirt'] = {'STFR.TShirt_Profession_Fireman_Blue_RavenCreek', 'STFR.TShirt_Profession_Fireman_Red_RavenCreek', 'STFR.TShirt_Profession_Fireman_Red_RavenCreek02', 'STFR.TShirt_Profession_Fireman_White_RavenCreek',},
-            ['Pants'] = 'STFR.Trousers_Fireman_Black_RavenCreek',
-            ['Shoes'] = 'Base.Shoes_ArmyBoots',
-        },
-    }
-    professionTable['policeofficer'] = {
-        {
-            ['Hat'] = 'STFR.Hat_Police_RavenCreek_Officer',
-            ['Jacket'] = 'STFR.Jacket_Police_RavenCreek_Officer',
-            ['Shirt'] = 'STFR.Shirt_Police_RavenCreek_Officer',
-            ['Tshirt'] = 'STFR.TShirt_Police_RavenCreek_Officer',
-            ['TorsoExtra'] = 'Base.Vest_BulletPolice',
-            ['Pants'] = 'STFR.Trousers_Police_RavenCreek',
-            ['Neck'] = {'STFR.Tie_Full_Police_RavenCreek', 'STFR.Tie_Worn_Police_RavenCreek',},
-        },
-    }
-    professionTable['nurse'] = {
-        {
-            ['Hat'] = 'STFR.Hat_BaseballCap_EMS_RavenCreek',
-            ['Jacket'] = 'STFR.Jacket_EMS_RavenCreek',
-            ['Shirt'] = 'STFR.Shirt_EMS_RavenCreek',
-            ['Tshirt'] = 'STFR.TShirt_EMS_RavenCreek',
-            ['Pants'] = 'STFR.Trousers_EMS_RavenCreek',
-        },
-    }
+--     OCCL.Outfitter.addMapClothingTable('RavenCreek', professionTable)
+-- end
 
-    OCCL.Outfitter.addMapClothingTable('RavenCreek', professionTable)
-end
+-- OCCL.Outfitter.addOutfits(OCCL.Outfitter.STFR_RavenCreek.generateMapClothingTables, OCCL.STFR_RavenCreek.checkEnabled)
 
-OCCL.Outfitter.addOutfits(OCCL.Outfitter.STFR_RavenCreek.generateMapClothingTables, OCCL.STFR_RavenCreek.checkEnabled)
+-- function OCCL.Outfitter.STFR_RavenCreek.addBlacklistedItems()
+--     if SandboxVars.OccupationalClothing.WantFireman < 3 then
+--         local bannedJackets = {'STFR.Jacket_Fireman_Black_RavenCreek', 'STFR.Jacket_Fireman_Khaki_RavenCreek'}
+--         OCCL.Outfitter.addToBlacklist('Jacket', bannedJackets)
+--         if SandboxVars.OccupationalClothing.WantFireman < 2 then
+--             local bannedTrousers = {'STFR.Trousers_Fireman_Black_RavenCreek', 'STFR.Trousers_Fireman_Khaki_RavenCreek'}
+--             OCCL.Outfitter.addToBlacklist('Pants', bannedTrousers)
+--         end
+--     end
 
-function OCCL.Outfitter.STFR_RavenCreek.addBlacklistedItems()
-    if SandboxVars.OccupationalClothing.WantFireman < 3 then
-        local bannedJackets = {'STFR.Jacket_Fireman_Black_RavenCreek', 'STFR.Jacket_Fireman_Khaki_RavenCreek'}
-        OCCL.Outfitter.addToBlacklist('Jacket', bannedJackets)
-        if SandboxVars.OccupationalClothing.WantFireman < 2 then
-            local bannedTrousers = {'STFR.Trousers_Fireman_Black_RavenCreek', 'STFR.Trousers_Fireman_Khaki_RavenCreek'}
-            OCCL.Outfitter.addToBlacklist('Pants', bannedTrousers)
-        end
-    end
+--     if not SandboxVars.OccupationalClothing.WantHardhats then
+--         local bannedHats = {'STFR.Hat_Fireman_RavenCreek_Blue', 'STFR.Hat_Fireman_RavenCreek_Black', 'STFR.Hat_Fireman_RavenCreek_Red',
+--         'STFR.Hat_Fireman_RavenCreek_Yellow'}
+--         OCCL.Outfitter.addToBlacklist('Hat', bannedHats)
+--     end
 
-    if not SandboxVars.OccupationalClothing.WantHardhats then
-        local bannedHats = {'STFR.Hat_Fireman_RavenCreek_Blue', 'STFR.Hat_Fireman_RavenCreek_Black', 'STFR.Hat_Fireman_RavenCreek_Red',
-        'STFR.Hat_Fireman_RavenCreek_Yellow'}
-        OCCL.Outfitter.addToBlacklist('Hat', bannedHats)
-    end
+--     if not SandboxVars.OccupationalClothing.WantJackets then
+--         local bannedJackets = {'STFR.Jacket_Police_RavenCreek_Officer', 'Jacket_Police_RavenCreek_SGT', 'Jacket_Police_RavenCreek_CPT', 'STFR.Jacket_EMS_RavenCreek'}
+--         OCCL.Outfitter.addToBlacklist('Jacket', bannedJackets)
+--     end
+-- end
 
-    if not SandboxVars.OccupationalClothing.WantJackets then
-        local bannedJackets = {'STFR.Jacket_Police_RavenCreek_Officer', 'Jacket_Police_RavenCreek_SGT', 'Jacket_Police_RavenCreek_CPT', 'STFR.Jacket_EMS_RavenCreek'}
-        OCCL.Outfitter.addToBlacklist('Jacket', bannedJackets)
-    end
-end
+-- OCCL.Outfitter.addBlacklistedItems(OCCL.Outfitter.STFR_RavenCreek.addBlacklistedItems, OCCL.STFR_RavenCreek.checkEnabled)
 
-OCCL.Outfitter.addBlacklistedItems(OCCL.Outfitter.STFR_RavenCreek.addBlacklistedItems, OCCL.STFR_RavenCreek.checkEnabled)
+-- function OCCL.Outfitter.STFR_RavenCreek.banSeasonalItems(month)
+--     if month == 12 or month < 3 then
+--         OCCL.Outfitter.addToBlacklist({['Tshirt'] = {'STFR.TShirt_Police_RavenCreek_Officer', 'TShirt_Police_RavenCreek_SGT', 'TShirt_Police_RavenCreek_CPT', 'STFR.TShirt_EMS_RavenCreek'}})
+--     elseif month < 6 then
+--         OCCL.Outfitter.addTableToBlacklist({['Tshirt'] = {'STFR.TShirt_Police_RavenCreek_Officer', 'TShirt_Police_RavenCreek_SGT', 'TShirt_Police_RavenCreek_CPT', 'STFR.TShirt_EMS_RavenCreek'},
+--                                 ['Jacket'] = {'STFR.Jacket_Police_RavenCreek_Officer', 'Jacket_Police_RavenCreek_SGT', 'Jacket_Police_RavenCreek_CPT', 'STFR.Jacket_EMS_RavenCreek'}})
+--     elseif month < 9 then
+--         OCCL.Outfitter.addTableToBlacklist({['Shirt'] = {'STFR.Shirt_Police_RavenCreek_Officer', 'Shirt_Police_RavenCreek_SGT', 'Shirt_Police_RavenCreek_CPT', 'STFR.Shirt_EMS_RavenCreek'},
+--                                 ['Jacket'] = {'STFR.Jacket_Police_RavenCreek_Officer', 'Jacket_Police_RavenCreek_SGT', 'Jacket_Police_RavenCreek_CPT', 'STFR.Jacket_EMS_RavenCreek'}})
+--     else
+--         OCCL.Outfitter.addTableToBlacklist({['Tshirt'] = {'STFR.TShirt_Police_RavenCreek_Officer', 'TShirt_Police_RavenCreek_SGT', 'TShirt_Police_RavenCreek_CPT', 'STFR.TShirt_EMS_RavenCreek'},
+--                                 ['Jacket'] = {'STFR.Jacket_Police_RavenCreek_Officer', 'Jacket_Police_RavenCreek_SGT', 'Jacket_Police_RavenCreek_CPT', 'STFR.Jacket_EMS_RavenCreek'}})
+--     end
+-- end
 
-function OCCL.Outfitter.STFR_RavenCreek.banSeasonalItems(month)
-    if month == 12 or month < 3 then
-        OCCL.Outfitter.addToBlacklist({['Tshirt'] = {'STFR.TShirt_Police_RavenCreek_Officer', 'TShirt_Police_RavenCreek_SGT', 'TShirt_Police_RavenCreek_CPT', 'STFR.TShirt_EMS_RavenCreek'}})
-    elseif month < 6 then
-        OCCL.Outfitter.addTableToBlacklist({['Tshirt'] = {'STFR.TShirt_Police_RavenCreek_Officer', 'TShirt_Police_RavenCreek_SGT', 'TShirt_Police_RavenCreek_CPT', 'STFR.TShirt_EMS_RavenCreek'},
-                                ['Jacket'] = {'STFR.Jacket_Police_RavenCreek_Officer', 'Jacket_Police_RavenCreek_SGT', 'Jacket_Police_RavenCreek_CPT', 'STFR.Jacket_EMS_RavenCreek'}})
-    elseif month < 9 then
-        OCCL.Outfitter.addTableToBlacklist({['Shirt'] = {'STFR.Shirt_Police_RavenCreek_Officer', 'Shirt_Police_RavenCreek_SGT', 'Shirt_Police_RavenCreek_CPT', 'STFR.Shirt_EMS_RavenCreek'},
-                                ['Jacket'] = {'STFR.Jacket_Police_RavenCreek_Officer', 'Jacket_Police_RavenCreek_SGT', 'Jacket_Police_RavenCreek_CPT', 'STFR.Jacket_EMS_RavenCreek'}})
-    else
-        OCCL.Outfitter.addTableToBlacklist({['Tshirt'] = {'STFR.TShirt_Police_RavenCreek_Officer', 'TShirt_Police_RavenCreek_SGT', 'TShirt_Police_RavenCreek_CPT', 'STFR.TShirt_EMS_RavenCreek'},
-                                ['Jacket'] = {'STFR.Jacket_Police_RavenCreek_Officer', 'Jacket_Police_RavenCreek_SGT', 'Jacket_Police_RavenCreek_CPT', 'STFR.Jacket_EMS_RavenCreek'}})
-    end
-end
-
-OCCL.Outfitter.addSeasonalBannedItems(OCCL.Outfitter.STFR_RavenCreek.banSeasonalItems, OCCL.STFR_RavenCreek.checkEnabled)
+-- OCCL.Outfitter.addSeasonalBannedItems(OCCL.Outfitter.STFR_RavenCreek.banSeasonalItems, OCCL.STFR_RavenCreek.checkEnabled)
