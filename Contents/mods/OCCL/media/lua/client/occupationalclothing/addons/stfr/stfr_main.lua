@@ -101,7 +101,7 @@ function OCCL.STFR_Main.addClothes()
 
     if SandboxVars.OccupationalClothing.WantVests then
         OCCL.UpdateClothing('policeofficer', {
-            TorsoExtra = {'Base.Vest_BulletPolice', 'STFR.Vest_BulletSheriff_Meade'},
+            TorsoExtra = {'Base.Vest_BulletPolice', 'STFR.Vest_BulletPolice_Meade'},
         }, false)
         OCCL.UpdateClothing('policeofficer', {
             Hat = {'Hat_Riot_Helmet_Police_Louisville', 'Hat_Riot_Helmet_Police_KSP', 'Hat_Riot_Helmet_Sheriff_Meade', 'Hat_Riot_Helmet_Sheriff_Meade_Solid', 'Hat_Riot_Helmet_Sheriff_Meade_Stripe',
