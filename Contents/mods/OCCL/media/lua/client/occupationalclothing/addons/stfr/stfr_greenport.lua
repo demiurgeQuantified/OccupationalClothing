@@ -42,7 +42,7 @@ function OCCL.STFR_Greenport.addClothes()
     end
     if SandboxVars.OccupationalClothing.WantVests then
         OCCL.UpdateClothing('policeofficer', {
-            Hat = {'Hat_Riot_Helmet_Police_Greenport'},
+            Hat = {'Hat_Riot_Helmet_Greenport'},
         }, 'STFR')
     end
 end
