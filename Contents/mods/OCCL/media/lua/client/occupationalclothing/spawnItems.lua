@@ -66,6 +66,8 @@ local badgeTable = {
 		Police_Tandil_Officer = 'STFR.Badge_Police_Tandil_Silver',
 		Police_Greenport_Officer = 'STFR.Badge_Police_Greenport_Gold',
 		Police_Tikitown_Officer = 'STFR.Badge_Police_Tikitown_Silver',
+		Police_Blackwood_Officer = 'STFR.Badge_Police_Blackwood_Silver',
+		Police_LVIA_Officer = 'STFR.Badge_Police_LVIA_Silver',
 
 		Police_Muldraugh_SGT = 'STFR.Badge_Police_Muldraugh_Gold', 
 		Sheriff_Rosewood_SGT = 'STFR.Badge_Sheriff_Rosewood_Gold', 
@@ -80,6 +82,8 @@ local badgeTable = {
 		Police_Tandil_SGT = 'STFR.Badge_Police_Tandil_Gold',
 		Police_Greenport_SGT = 'STFR.Badge_Police_Greenport_Gold',
 		Police_Tikitown_SGT = 'STFR.Badge_Police_Tikitown_Silver',
+		Police_Blackwood_SGT = 'STFR.Badge_Police_Blackwood_Silver',
+		Police_LVIA_SGT = 'STFR.Badge_Police_LVIA_Gold',
 
 		Police_Muldraugh_CPT = 'STFR.Badge_Police_Muldraugh_Gold', 
 		Sheriff_Rosewood_CPT = 'STFR.Badge_Sheriff_Rosewood_Gold', 
@@ -93,7 +97,9 @@ local badgeTable = {
 		Police_RavenCreek_CPT = 'STFR.Badge_Police_RavenCreek_Gold', 
 		Police_Tandil_CPT = 'STFR.Badge_Police_Tandil_Gold',
 		Police_Greenport_CPT = 'STFR.Badge_Police_Greenport_Gold',
-		Police_Tikitown_CPT = 'STFR.Badge_Police_Tikitown_Silver'
+		Police_Tikitown_CPT = 'STFR.Badge_Police_Tikitown_Silver',
+		Police_Blackwood_CPT = 'STFR.Badge_Police_Blackwood_Gold',
+		Police_LVIA_CPT = 'STFR.Badge_Police_LVIA_Gold'
 	}
 }
 

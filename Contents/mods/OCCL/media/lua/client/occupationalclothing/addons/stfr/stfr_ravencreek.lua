@@ -29,7 +29,8 @@ function OCCL.STFR_RavenCreek.addClothes()
         Shirt = {'Shirt_Fire_RavenCreek', 'Shirt_Fire_RavenCreek_Supervisor'},
         Tshirt = {'TShirt_Profession_Fireman_Blue_RavenCreek', 'TShirt_Profession_Fireman_Red_RavenCreek', 'TShirt_Profession_Fireman_Red_RavenCreek02', 'TShirt_Profession_Fireman_White_RavenCreek',},
         Pants = {'Trousers_Fire_Formal_RavenCreek',},
-        Neck = {'Tie_Full_Fire_RavenCreek', 'Tie_Worn_Fire_RavenCreek',},
+-- TODO: Fix this.
+--        Neck = {'Tie_Full_Fire_RavenCreek', 'Tie_Worn_Fire_RavenCreek',},
     }, 'STFR')
     OCCL.UpdateClothing('policeofficer', {
         Hat = {'Hat_Police_RavenCreek_Officer', 'Hat_BaseballCap_DOC_RavenCreek'},

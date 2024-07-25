@@ -32,7 +32,8 @@ function OCCL.STFR_Main.addClothes()
                 'TShirt_Profession_Fireman_Blue_Louisville', 'TShirt_Profession_Fireman_Red_Louisville', 'TShirt_Profession_Fireman_Red_Louisville02', 'TShirt_Profession_Fireman_White_Louisville',
                 'TShirt_Fire_Louisville', 'TShirt_Fire_Louisville_Supervisor', 'TShirt_Fire_Meade', 'TShirt_Fire_Meade_Supervisor', 'TShirt_Fire_Rosewood', 'TShirt_Fire_Rosewood_Supervisor',},
         Pants = {'Trousers_Fire_Formal_Louisville', 'Trousers_Fire_Formal_Meade', 'Trousers_Fire_Formal_Rosewood',},
-        Neck = {'Tie_Full_Fire_Louisville', 'Tie_Worn_Fire_Louisville',},
+-- TODO: Fix this.
+--        Neck = {'Tie_Full_Fire_Louisville', 'Tie_Worn_Fire_Louisville',},
 	}, 'STFR')
 
     OCCL.UpdateClothing('policeofficer', {
