@@ -66,38 +66,6 @@ option OccupationalClothing.WantVanillaEMS
 	translation = OccupationalClothing_WantVanillaEMS,
 }
 
-option OccupationalClothing.WantSTR
-{
-	type = boolean,
-	default = true,
-	page = OccupationalClothing,
-	translation = OccupationalClothing_WantSTR,
-}
-
-option OccupationalClothing.WantSTRFormalDress
-{
-	type = boolean,
-	default = false,
-	page = OccupationalClothing,
-	translation = OccupationalClothing_WantSTRFormalDress,
-}
-
-option OccupationalClothing.WantSTRRanks
-{
-	type = boolean,
-	default = false,
-	page = OccupationalClothing,
-	translation = OccupationalClothing_WantSTRRanks,
-}
-
-option OccupationalClothing.STRBadges
-{
-	type = boolean,
-	default = true,
-	page = OccupationalClothing,
-	translation = OccupationalClothing_STRBadges,
-}
-
 option OccupationalClothing.WantBrita
 {
 	type = boolean,

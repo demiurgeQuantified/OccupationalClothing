@@ -1,6 +1,6 @@
 version=1
 id=2740714428
-title=Expanded Occupational Clothing
+title=Occupational Clothing
 description=This mod adds additional selectable clothing during character creation based on occupation. Unlike similar mods, this does not give you any other items such as weapons, food, etc. Only vanilla occupations are supported.
 description=
 description=This mod has sandbox variables to allow you to use occupational outfits from mods. At the moment, the supported mods are:
